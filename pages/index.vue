@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header class="flex justify-between items-center px-8 h-[10vh] text-2xl font-bold bg-blue-200">
+  <header
+    class="sticky top-0 z-50 backdrop-blur bg-blue-200/50 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
+  >
     <h3>Brian Hsu</h3>
     <nav>
       <ul class="flex gap-8">
