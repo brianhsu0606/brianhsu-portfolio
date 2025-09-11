@@ -1,4 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  gsap.from(".project-card", {
+    scrollTrigger: {
+      trigger: ".project-card",
+      start: "top 80%", // 當卡片上緣到達視窗 80% 高度時觸發
+      toggleActions: "play reverse play reverse",
+    },
+    y: 100, // 從下方移動
+    opacity: 0, // 初始透明
+    duration: 1,
+    stagger: 0.3, // 卡片一個接一個出現
+    ease: "power3.out",
+  });
+});
+</script>
 
 <template>
   <header
@@ -38,29 +59,29 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-8 bg-blue-50">
+    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="bg-white shadow rounded-xl p-6 project-card">
+        <h3 class="text-2xl font-semibold mb-2">記帳小幫手</h3>
+        <p class="mb-4">一個簡單的記帳系統，支援新增、刪除與分析。</p>
+        <span class="text-sm text-gray-600">Vue / Express</span>
+      </div>
+      <div class="bg-white shadow rounded-xl p-6 project-card">
+        <h3 class="text-2xl font-semibold mb-2">樂器行後台系統</h3>
+        <p class="mb-4">模擬樂器行的會員與商品管理後台。</p>
+        <span class="text-sm text-gray-600">Vue / Element Plus</span>
+      </div>
+    </div>
+  </section>
+
   <!-- About -->
   <section id="about" class="py-20 px-8 bg-white text-center">
     <h2 class="text-4xl font-bold mb-6">About Me</h2>
     <p class="max-w-2xl mx-auto text-lg">
       我是一名前端開發者，熟悉 Vue 3、Express 和 Tailwind CSS，熱衷於打造實用的產品。
     </p>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-20 px-8 bg-blue-50">
-    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white shadow rounded-xl p-6">
-        <h3 class="text-2xl font-semibold mb-2">記帳小幫手</h3>
-        <p class="mb-4">一個簡單的記帳系統，支援新增、刪除與分析。</p>
-        <span class="text-sm text-gray-600">Vue / Express</span>
-      </div>
-      <div class="bg-white shadow rounded-xl p-6">
-        <h3 class="text-2xl font-semibold mb-2">樂器行後台系統</h3>
-        <p class="mb-4">模擬樂器行的會員與商品管理後台。</p>
-        <span class="text-sm text-gray-600">Vue / Element Plus</span>
-      </div>
-    </div>
   </section>
 
   <!-- Contact -->
