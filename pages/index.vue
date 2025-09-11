@@ -3,6 +3,25 @@ import { onMounted } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+const projects = [
+  {
+    img: "/images/project1.png",
+    title: "記帳小幫手",
+    description: "一個簡單的記帳系統，支援新增、刪除與分析。",
+    techStack: "Vue 3 / TypeScript / Node.js / mongoDB",
+    github: "https://github.com/brianhsu0606/budget-tracker",
+    link: "https://budget-tracker-sigma-liart.vercel.app",
+  },
+  {
+    img: "/images/project2.png",
+    title: "樂器行後台系統",
+    description: "模擬樂器行的會員與商品管理後台。",
+    techStack: "Vue 3 / Node.js / mongoDB",
+    github: "https://github.com/brianhsu0606/music-store-admin",
+    link: "https://budget-tracker-sigma-liart.vercel.app",
+  },
+];
+
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
@@ -37,7 +56,7 @@ onMounted(() => {
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-[90vh] flex">
+  <section id="home" class="h-[90vh] flex border-b">
     <!-- 左邊文字 -->
     <div class="w-1/2 h-full bg-blue-100 flex justify-center items-center">
       <div>
@@ -46,7 +65,7 @@ onMounted(() => {
           <p class="text-3xl font-bold">Frontend Developer</p>
         </div>
         <div class="text-2xl">
-          <p class="font-bold">Tech Stack</p>
+          <p class="font-bold">Skills</p>
           <p class="font-medium">Frontend - Vue 3, TypeScript, Tailwind CSS</p>
           <p class="font-medium">Backend - Node.js, Express, MongoDB</p>
         </div>
@@ -55,23 +74,31 @@ onMounted(() => {
 
     <!-- 右邊照片 -->
     <div class="w-1/2 h-full flex justify-center items-center bg-gray-100">
-      <img src="/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
+      <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-20 px-8 bg-blue-50">
-    <h2 class="text-4xl font-bold mb-10 text-center">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white shadow rounded-xl p-6 project-card">
-        <h3 class="text-2xl font-semibold mb-2">記帳小幫手</h3>
-        <p class="mb-4">一個簡單的記帳系統，支援新增、刪除與分析。</p>
-        <span class="text-sm text-gray-600">Vue / Express</span>
-      </div>
-      <div class="bg-white shadow rounded-xl p-6 project-card">
-        <h3 class="text-2xl font-semibold mb-2">樂器行後台系統</h3>
-        <p class="mb-4">模擬樂器行的會員與商品管理後台。</p>
-        <span class="text-sm text-gray-600">Vue / Element Plus</span>
+  <section id="projects" class="p-8 bg-blue-50">
+    <h3 class="text-4xl font-bold text-center mb-6 project-card">Projects</h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div
+        v-for="project in projects"
+        :key="project.title"
+        class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
+      >
+        <img :src="project.img" :alt="project.img" class="w-48 h-40" />
+        <div class="flex flex-col gap-4 text-lg font-medium">
+          <h3 class="text-2xl font-semibold">{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <p>使用技術：{{ project.techStack }}</p>
+          <div>
+            <a :href="project.github" class="text-blue-700 hover:text-blue-500">GitHub 連結</a>
+            <span> | </span>
+            <a :href="project.link" class="text-blue-700 hover:text-blue-500">作品連結</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
