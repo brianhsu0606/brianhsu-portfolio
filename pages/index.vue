@@ -2,24 +2,40 @@
 
 <template>
   <header
-    class="sticky top-0 z-50 backdrop-blur bg-blue-200/50 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
+    class="sticky top-0 z-50 backdrop-blur bg-blue-400/50 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
   >
     <h3>Brian Hsu</h3>
     <nav>
-      <ul class="flex gap-8">
+      <ul class="flex gap-8 text-xl">
         <li><NuxtLink to="#home">HOME</NuxtLink></li>
         <li><NuxtLink to="#about">ABOUT</NuxtLink></li>
-        <li><NuxtLink to="#project">PROJECTS</NuxtLink></li>
+        <li><NuxtLink to="#projects">PROJECTS</NuxtLink></li>
         <li><NuxtLink to="#contact">CONTACT</NuxtLink></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="h-[90vh] flex flex-col justify-center items-center text-center bg-blue-100">
-    <h1 class="text-5xl font-bold mb-4">Hi, I’m Brian 👋</h1>
-    <p class="text-xl mb-6">Frontend Developer | Vue.js | Express</p>
-    <a href="#projects" class="px-6 py-3 bg-blue-500 text-white rounded-xl">View My Work</a>
+  <!-- Home -->
+  <section id="home" class="h-[90vh] flex">
+    <!-- 左邊文字 -->
+    <div class="w-1/2 h-full bg-blue-100 flex justify-center items-center">
+      <div>
+        <div class="mb-6">
+          <h1 class="text-5xl font-bold mb-4">Hi, I’m Brian Hsu 👋</h1>
+          <p class="text-3xl font-bold">Frontend Developer</p>
+        </div>
+        <div class="text-2xl">
+          <p class="font-bold">Tech Stack</p>
+          <p class="font-medium">Frontend - Vue 3, TypeScript, Tailwind CSS</p>
+          <p class="font-medium">Backend - Node.js, Express, MongoDB</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右邊照片 -->
+    <div class="w-1/2 h-full flex justify-center items-center bg-gray-100">
+      <img src="/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
+    </div>
   </section>
 
   <!-- About -->
