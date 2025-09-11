@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+const sections: string[] = ["home", "projects", "about", "contact"];
+const currentSection = ref<string>("home");
 
 const projects = [
+  {
+    img: "/images/project1.png",
+    title: "Brian Hsu Portfolio",
+    description: "個人履歷網頁。",
+    techStack: "Nuxt 3 / TypeScript / GSAP",
+    github: "https://github.com/brianhsu0606/music-store-admin",
+    link: "https://budget-tracker-sigma-liart.vercel.app",
+  },
   {
     img: "/images/project1.png",
     title: "記帳小幫手",
@@ -25,6 +36,16 @@ const projects = [
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
+  sections.forEach((id) => {
+    ScrollTrigger.create({
+      trigger: `#${id}`,
+      start: "top center", // 區塊到視窗中間時觸發
+      end: "bottom center",
+      onEnter: () => (currentSection.value = id),
+      onEnterBack: () => (currentSection.value = id),
+    });
+  });
+
   gsap.from(".project-card", {
     scrollTrigger: {
       trigger: ".project-card",
@@ -42,15 +63,14 @@ onMounted(() => {
 
 <template>
   <header
-    class="sticky top-0 z-50 backdrop-blur bg-blue-400/50 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
+    class="sticky top-0 z-50 backdrop-blur bg-blue-400/80 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
   >
     <h3>Brian Hsu</h3>
     <nav>
-      <ul class="flex gap-8 text-xl">
-        <li><NuxtLink to="#home">HOME</NuxtLink></li>
-        <li><NuxtLink to="#about">ABOUT</NuxtLink></li>
-        <li><NuxtLink to="#projects">PROJECTS</NuxtLink></li>
-        <li><NuxtLink to="#contact">CONTACT</NuxtLink></li>
+      <ul class="flex gap-8">
+        <li v-for="section in sections" :key="section" :class="{ 'text-blue-800': currentSection === section }">
+          <NuxtLink :to="'#' + section">{{ section.toUpperCase() }}</NuxtLink>
+        </li>
       </ul>
     </nav>
   </header>
@@ -58,7 +78,7 @@ onMounted(() => {
   <!-- Home -->
   <section id="home" class="h-[90vh] flex border-b">
     <!-- 左邊文字 -->
-    <div class="w-1/2 h-full bg-blue-100 flex justify-center items-center">
+    <div class="w-3/5 h-full bg-blue-100 flex justify-center items-center">
       <div>
         <div class="mb-6">
           <h1 class="text-5xl font-bold mb-4">Hi, I’m Brian Hsu 👋</h1>
@@ -71,15 +91,14 @@ onMounted(() => {
         </div>
       </div>
     </div>
-
     <!-- 右邊照片 -->
-    <div class="w-1/2 h-full flex justify-center items-center bg-gray-100">
+    <div class="w-2/5 h-full flex justify-center items-center bg-blue-100">
       <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="p-8 bg-blue-50">
+  <section id="projects" class="pt-8 pb-20 px-12 bg-blue-50">
     <h3 class="text-4xl font-bold text-center mb-6 project-card">Projects</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -88,11 +107,14 @@ onMounted(() => {
         :key="project.title"
         class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
       >
-        <img :src="project.img" :alt="project.img" class="w-48 h-40" />
-        <div class="flex flex-col gap-4 text-lg font-medium">
-          <h3 class="text-2xl font-semibold">{{ project.title }}</h3>
+        <img :src="project.img" :alt="project.img" class="w-[40%] h-full rounded-xl shadow-lg" />
+        <div class="flex flex-col justify-between gap-4 text-lg font-medium">
+          <h3 class="text-2xl font-medium">{{ project.title }}</h3>
           <p>{{ project.description }}</p>
-          <p>使用技術：{{ project.techStack }}</p>
+          <div>
+            <p class="font-bold">使用技術：</p>
+            <p>{{ project.techStack }}</p>
+          </div>
           <div>
             <a :href="project.github" class="text-blue-700 hover:text-blue-500">GitHub 連結</a>
             <span> | </span>
@@ -107,7 +129,8 @@ onMounted(() => {
   <section id="about" class="py-20 px-8 bg-white text-center">
     <h2 class="text-4xl font-bold mb-6">About Me</h2>
     <p class="max-w-2xl mx-auto text-lg">
-      我是一名前端開發者，熟悉 Vue 3、Express 和 Tailwind CSS，熱衷於打造實用的產品。
+      畢業於國立臺灣海洋大學資訊工程學系，我是一名前端開發者，熟悉 Vue 3、Express 和 Tailwind
+      CSS，熱衷於打造實用的產品。
     </p>
   </section>
 
