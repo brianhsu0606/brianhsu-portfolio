@@ -8,6 +8,11 @@ import gsap from "gsap";
 const sections: string[] = ["home", "projects", "about", "contact"];
 const currentSection = ref<string>("home");
 
+const icons = [
+  { name: faGithub, url: "https://github.com/brianhsu0606" },
+  { name: faLinkedin, url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" },
+];
+
 const skills = [
   {
     category: "frontend",
@@ -114,12 +119,8 @@ onMounted(() => {
 
         <!-- Icons -->
         <div class="space-x-4">
-          <a href="https://github.com/brianhsu0606" target="_blank">
-            <FontAwesomeIcon :icon="faGithub" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
-          </a>
-
-          <a href="https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" target="_blank">
-            <FontAwesomeIcon :icon="faLinkedin" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
+          <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank">
+            <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
           </a>
         </div>
 
