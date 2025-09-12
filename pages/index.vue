@@ -89,7 +89,7 @@ onMounted(() => {
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-[90vh] flex border-b bg-blue-100">
+  <section id="home" class="h-[90vh] flex border-b bg-blue-100 overflow-x-hidden">
     <div class="w-3/5 h-full flex justify-center items-center">
       <div class="home-text">
         <div class="mb-6">
@@ -103,8 +103,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <div class="w-2/5 h-full flex justify-center items-center home-img">
-      <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
+    <div class="w-2/5 h-full flex justify-center items-center">
+      <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img" />
     </div>
   </section>
 
