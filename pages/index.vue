@@ -15,7 +15,7 @@ const projects = [
     title: "Brian Hsu Portfolio",
     description: "個人履歷網頁。",
     techStack: "Nuxt 3 / TypeScript / GSAP",
-    github: "https://github.com/brianhsu0606/music-store-admin",
+    github: "https://github.com/brianhsu0606/brianhsu-portfolio",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
   {
@@ -92,33 +92,35 @@ onMounted(() => {
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-[90vh] flex border-b bg-blue-100 overflow-x-hidden">
+  <section id="home" class="h-[90vh] flex border-b bg-gray-100 overflow-x-hidden">
     <div class="w-3/5 h-full flex justify-center items-center">
-      <div class="flex flex-col gap-4 home-text">
+      <div class="flex flex-col gap-6 home-text">
         <h1
           class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
         >
           Hi, I’m Brian Hsu
         </h1>
         <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
-        <div class="flex flex-col gap-4 text-xl font-medium text-gray-800">
+
+        <!-- Skills -->
+        <div class="flex flex-col gap-4 text-xl font-medium text-white">
           <div class="flex gap-4">
-            <span
+            <div
               v-for="skill in frontendSkills"
               :key="skill"
-              class="px-4 py-2 bg-blue-300 border border-black rounded-full hover:bg-blue-200 transition cursor-pointer shadow-md"
+              class="px-6 py-4 bg-gray-700 rounded-full hover:bg-gray-600 transition shadow-md"
             >
-              # {{ skill }}
-            </span>
+              {{ skill }}
+            </div>
           </div>
           <div class="flex gap-4">
-            <span
+            <div
               v-for="skill in backendSkills"
               :key="skill"
-              class="px-4 py-2 bg-blue-300 border border-black rounded-full hover:bg-blue-200 transition cursor-pointer shadow-md"
+              class="px-6 py-4 bg-gray-700 rounded-full hover:bg-gray-600 transition shadow-md"
             >
-              # {{ skill }}
-            </span>
+              {{ skill }}
+            </div>
           </div>
         </div>
       </div>
@@ -159,10 +161,6 @@ onMounted(() => {
   <!-- About -->
   <section id="about" class="py-20 px-8 bg-white text-center">
     <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="max-w-2xl mx-auto text-lg">
-      畢業於國立臺灣海洋大學資訊工程學系，我是一名前端開發者，熟悉 Vue 3、Express 和 Tailwind
-      CSS，熱衷於打造實用的產品。
-    </p>
     <p>畢業於國立臺灣海洋大學資訊工程學系，熟悉 Vue 3、TypeScript、Tailwind CSS，熱衷於打造實用的產品。</p>
 
     <div class="skills flex gap-4 flex-wrap justify-center">
