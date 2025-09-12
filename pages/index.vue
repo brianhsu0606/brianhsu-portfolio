@@ -107,7 +107,10 @@ onMounted(() => {
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-[90vh] flex border-b bg-gray-100 overflow-x-hidden">
+  <section
+    id="home"
+    class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100"
+  >
     <div class="w-3/5 h-full flex justify-center items-center">
       <div class="flex flex-col gap-6 home-text">
         <h1
