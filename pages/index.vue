@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -102,13 +104,24 @@ onMounted(() => {
         </h1>
         <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
 
+        <!-- Icons -->
+        <div class="space-x-4">
+          <a href="https://github.com/brianhsu0606" target="_blank">
+            <FontAwesomeIcon :icon="faGithub" class="w-12 h-12 text-gray-800 hover:text-amber-600 transition" />
+          </a>
+
+          <a href="https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" target="_blank">
+            <FontAwesomeIcon :icon="faLinkedin" class="w-12 h-12 text-gray-800 hover:text-amber-600 transition" />
+          </a>
+        </div>
+
         <!-- Skills -->
         <div class="flex flex-col gap-4 text-xl font-medium text-white">
           <div class="flex gap-4">
             <div
               v-for="skill in frontendSkills"
               :key="skill"
-              class="px-6 py-4 bg-gray-700 rounded-full hover:bg-gray-600 transition shadow-md"
+              class="px-6 py-4 bg-gray-700 rounded-full hover:bg-gray-600 transition shadow-md transform scale"
             >
               {{ skill }}
             </div>
