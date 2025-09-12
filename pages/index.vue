@@ -48,27 +48,40 @@ onMounted(() => {
 
   gsap.from(".project-card", {
     scrollTrigger: {
-      trigger: ".project-card",
+      trigger: "#projects",
       start: "top 80%", // 當卡片上緣到達視窗 80% 高度時觸發
       toggleActions: "play reverse play reverse",
     },
-    y: 100, // 從下方移動
-    opacity: 0, // 初始透明
+    y: 100,
+    opacity: 0,
     duration: 1,
-    stagger: 0.3, // 卡片一個接一個出現
+    stagger: 0.3,
+    ease: "power3.out",
+  });
+
+  gsap.from([".home-text", ".home-img"], {
+    scrollTrigger: {
+      trigger: "#home",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse",
+    },
+    x: (i) => (i === 0 ? -200 : 200), // 第一個往左，第二個往右
+    opacity: 0,
+    duration: 2,
     ease: "power3.out",
   });
 });
 </script>
 
 <template>
+  <!-- Header -->
   <header
-    class="sticky top-0 z-50 backdrop-blur bg-blue-400/80 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold"
+    class="sticky top-0 z-50 backdrop-blur bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold text-white"
   >
     <h3>Brian Hsu</h3>
     <nav>
       <ul class="flex gap-8">
-        <li v-for="section in sections" :key="section" :class="{ 'text-blue-800': currentSection === section }">
+        <li v-for="section in sections" :key="section" :class="{ 'text-orange-400': currentSection === section }">
           <NuxtLink :to="'#' + section">{{ section.toUpperCase() }}</NuxtLink>
         </li>
       </ul>
@@ -76,30 +89,28 @@ onMounted(() => {
   </header>
 
   <!-- Home -->
-  <section id="home" class="h-[90vh] flex border-b">
-    <!-- 左邊文字 -->
-    <div class="w-3/5 h-full bg-blue-100 flex justify-center items-center">
-      <div>
+  <section id="home" class="h-[90vh] flex border-b bg-blue-100">
+    <div class="w-3/5 h-full flex justify-center items-center">
+      <div class="home-text">
         <div class="mb-6">
           <h1 class="text-5xl font-bold mb-4">Hi, I’m Brian Hsu 👋</h1>
           <p class="text-3xl font-bold">Frontend Developer</p>
         </div>
-        <div class="text-2xl">
+        <div class="text-2xl font-medium">
           <p class="font-bold">Skills</p>
-          <p class="font-medium">Frontend - Vue 3, TypeScript, Tailwind CSS</p>
-          <p class="font-medium">Backend - Node.js, Express, MongoDB</p>
+          <p>Frontend - Vue 3, TypeScript, Tailwind CSS</p>
+          <p>Backend - Node.js, Express, MongoDB</p>
         </div>
       </div>
     </div>
-    <!-- 右邊照片 -->
-    <div class="w-2/5 h-full flex justify-center items-center bg-blue-100">
+    <div class="w-2/5 h-full flex justify-center items-center home-img">
       <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl" />
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="pt-8 pb-20 px-12 bg-blue-50">
-    <h3 class="text-4xl font-bold text-center mb-6 project-card">Projects</h3>
+  <section id="projects" class="py-12 px-12 bg-blue-50">
+    <h3 class="text-4xl font-bold text-center mb-12 project-card">Projects</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div
@@ -108,17 +119,17 @@ onMounted(() => {
         class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
       >
         <img :src="project.img" :alt="project.img" class="w-[40%] h-full rounded-xl shadow-lg" />
-        <div class="flex flex-col justify-between gap-4 text-lg font-medium">
-          <h3 class="text-2xl font-medium">{{ project.title }}</h3>
+        <div class="flex flex-col justify-between gap-2 text-lg font-medium">
+          <h3 class="text-2xl font-black">{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div>
             <p class="font-bold">使用技術：</p>
             <p>{{ project.techStack }}</p>
           </div>
           <div>
-            <a :href="project.github" class="text-blue-700 hover:text-blue-500">GitHub 連結</a>
+            <a :href="project.github" class="text-blue-700 hover:text-blue-500" target="_blank">GitHub 連結</a>
             <span> | </span>
-            <a :href="project.link" class="text-blue-700 hover:text-blue-500">作品連結</a>
+            <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank">作品連結</a>
           </div>
         </div>
       </div>
