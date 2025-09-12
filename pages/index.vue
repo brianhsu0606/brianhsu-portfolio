@@ -6,6 +6,9 @@ import gsap from "gsap";
 const sections: string[] = ["home", "projects", "about", "contact"];
 const currentSection = ref<string>("home");
 
+const frontendSkills: string[] = ["Vue 3", "TypeScript", "Tailwind CSS"];
+const backendSkills: string[] = ["Node.js", "Express", "MongoDB"];
+
 const projects = [
   {
     img: "/images/project1.png",
@@ -91,15 +94,32 @@ onMounted(() => {
   <!-- Home -->
   <section id="home" class="h-[90vh] flex border-b bg-blue-100 overflow-x-hidden">
     <div class="w-3/5 h-full flex justify-center items-center">
-      <div class="home-text">
-        <div class="mb-6">
-          <h1 class="text-5xl font-bold mb-4">Hi, I’m Brian Hsu 👋</h1>
-          <p class="text-3xl font-bold">Frontend Developer</p>
-        </div>
-        <div class="text-2xl font-medium">
-          <p class="font-bold">Skills</p>
-          <p>Frontend - Vue 3, TypeScript, Tailwind CSS</p>
-          <p>Backend - Node.js, Express, MongoDB</p>
+      <div class="flex flex-col gap-4 home-text">
+        <h1
+          class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+        >
+          Hi, I’m Brian Hsu
+        </h1>
+        <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
+        <div class="flex flex-col gap-4 text-xl font-medium text-gray-800">
+          <div class="flex gap-4">
+            <span
+              v-for="skill in frontendSkills"
+              :key="skill"
+              class="px-4 py-2 bg-blue-300 border border-black rounded-full hover:bg-blue-200 transition cursor-pointer shadow-md"
+            >
+              # {{ skill }}
+            </span>
+          </div>
+          <div class="flex gap-4">
+            <span
+              v-for="skill in backendSkills"
+              :key="skill"
+              class="px-4 py-2 bg-blue-300 border border-black rounded-full hover:bg-blue-200 transition cursor-pointer shadow-md"
+            >
+              # {{ skill }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -143,10 +163,20 @@ onMounted(() => {
       畢業於國立臺灣海洋大學資訊工程學系，我是一名前端開發者，熟悉 Vue 3、Express 和 Tailwind
       CSS，熱衷於打造實用的產品。
     </p>
+    <p>畢業於國立臺灣海洋大學資訊工程學系，熟悉 Vue 3、TypeScript、Tailwind CSS，熱衷於打造實用的產品。</p>
+
+    <div class="skills flex gap-4 flex-wrap justify-center">
+      <span>Vue 3</span>
+      <span>TypeScript</span>
+      <span>Tailwind CSS</span>
+      <span>Node.js</span>
+      <span>Express</span>
+      <span>MongoDB</span>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 px-8 bg-white text-center">
+  <section id="contact" class="py-20 px-8 bg-blue-200 text-center">
     <h2 class="text-4xl font-bold mb-6">Contact</h2>
     <p class="mb-4">Email: brian@example.com</p>
     <div class="flex justify-center gap-6 text-2xl">
