@@ -162,128 +162,137 @@ onMounted(() => {
     </nav>
   </header>
 
-  <!-- Home -->
-  <section
-    id="home"
-    class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
-  >
-    <div class="w-3/5 h-full flex justify-center items-center">
-      <div class="flex flex-col gap-6 home-text">
-        <h1
-          class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
-        >
-          Hi, I’m Brian Hsu
-        </h1>
-        <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
+  <main>
+    <!-- Home -->
+    <section
+      id="home"
+      class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+    >
+      <div class="w-3/5 h-full flex justify-center items-center">
+        <div class="flex flex-col gap-6 home-text">
+          <h1
+            class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+          >
+            Hi, I’m Brian Hsu
+          </h1>
+          <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
 
-        <!-- Social Media Icons -->
-        <div class="space-x-4">
-          <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank">
-            <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
-          </a>
-        </div>
+          <!-- Social Media Icons -->
+          <div class="space-x-4">
+            <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank">
+              <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
+            </a>
+          </div>
 
-        <!-- Skills -->
-        <div v-for="group in skills" :key="group.category" class="text-xl font-medium text-white">
-          <div class="flex gap-4">
-            <div
-              v-for="skill in group.item"
-              :key="skill"
-              class="px-6 py-4 bg-gray-600 rounded-full shadow-md transform hover:-translate-y-1 hover:scale-105 transition"
-            >
-              {{ skill }}
+          <!-- Skills -->
+          <div v-for="group in skills" :key="group.category" class="text-xl font-medium text-white">
+            <div class="flex gap-4">
+              <div
+                v-for="skill in group.item"
+                :key="skill"
+                class="px-6 py-4 bg-gray-600 rounded-full shadow-md transform hover:-translate-y-1 hover:scale-105 transition"
+              >
+                {{ skill }}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Image -->
-    <div class="w-2/5 h-full flex justify-center items-center">
-      <img
-        src="/images/home.jpg"
-        alt="Brian Hsu picture"
-        class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img"
-      />
-    </div>
-
-    <!-- Scroll Hint -->
-    <div class="absolute w-full bottom-6 flex flex-col items-center arrow">
-      <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
-      <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="p-12 bg-blue-50">
-    <h3 class="text-4xl font-bold text-center mb-12 project-card">Projects</h3>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div
-        v-for="project in projects"
-        :key="project.title"
-        class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
-      >
-        <img :src="project.img" :alt="project.img + 'picture'" class="w-[40%] h-full rounded-xl shadow-lg" />
-        <div class="flex flex-col justify-between gap-4">
-          <h3 class="text-2xl font-black">{{ project.title }}</h3>
-          <p class="text-lg">{{ project.description }}</p>
-
-          <!-- Tech Stack -->
-          <div class="flex gap-3 flex-wrap text-gray-700 text-base font-medium">
-            <div v-for="tech in project.techStack" :key="tech" class="bg-gray-200 rounded-2xl shadow px-3 py-1">
-              {{ tech }}
-            </div>
-          </div>
-
-          <!-- Link -->
-          <div class="font-medium">
-            <a :href="project.github" class="text-blue-700 hover:text-blue-500" target="_blank">GitHub 連結</a>
-            <span> | </span>
-            <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank">作品連結</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="p-12 bg-blue-100">
-    <h2 class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
-    <div class="flex">
-      <!-- About Image -->
+      <!-- Image -->
       <div class="w-2/5 h-full flex justify-center items-center">
         <img
-          src="/images/about.jpg"
+          src="/images/home.jpg"
           alt="Brian Hsu picture"
-          class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img"
+          loading="lazy"
+          class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img"
         />
       </div>
 
-      <!-- Description  -->
-      <div class="w-3/5 space-y-4 about-text">
-        <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl">
-          <FontAwesomeIcon :icon="faBook" class="text-gray-600 mt-1" />
-          <span class="text-gray-700">{{ content }} </span>
-        </p>
+      <!-- Scroll Hint -->
+      <div class="absolute w-full bottom-6 flex flex-col items-center arrow">
+        <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
+        <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-10 bg-blue-200 flex flex-col items-center gap-4">
-    <h2 class="text-4xl font-bold">Contact</h2>
-    <p>Email: a0938406813@gmail.com</p>
+    <!-- Projects -->
+    <section id="projects" class="p-12 bg-blue-50">
+      <h3 class="text-4xl font-bold text-center mb-12 project-card">Projects</h3>
 
-    <a
-      href="/brianhsu_resume.pdf"
-      target="_blank"
-      class="px-4 py-2 rounded text-lg font-medium bg-gray-600 text-gray-200 hover:bg-gray-200 hover:text-gray-700 transition"
-    >
-      <FontAwesomeIcon :icon="faCircleDown" />
-      Download Resume
-    </a>
-  </section>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          v-for="project in projects"
+          :key="project.title"
+          class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
+        >
+          <img
+            :src="project.img"
+            :alt="project.img + 'picture'"
+            loading="lazy"
+            class="w-[40%] h-full rounded-xl shadow-lg"
+          />
+          <div class="flex flex-col justify-between gap-4">
+            <h3 class="text-2xl font-black">{{ project.title }}</h3>
+            <p class="text-lg">{{ project.description }}</p>
+
+            <!-- Tech Stack -->
+            <div class="flex gap-3 flex-wrap text-gray-700 text-base font-medium">
+              <div v-for="tech in project.techStack" :key="tech" class="bg-gray-200 rounded-2xl shadow px-3 py-1">
+                {{ tech }}
+              </div>
+            </div>
+
+            <!-- Link -->
+            <div class="font-medium">
+              <a :href="project.github" class="text-blue-700 hover:text-blue-500" target="_blank">GitHub 連結</a>
+              <span> | </span>
+              <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank">作品連結</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="p-12 bg-blue-100">
+      <h2 class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
+      <div class="flex">
+        <!-- About Image -->
+        <div class="w-2/5 h-full flex justify-center items-center">
+          <img
+            src="/images/about.jpg"
+            alt="Brian Hsu picture"
+            loading="lazy"
+            class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img"
+          />
+        </div>
+
+        <!-- Description  -->
+        <div class="w-3/5 space-y-4 about-text">
+          <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl">
+            <FontAwesomeIcon :icon="faBook" class="text-gray-600 mt-1" />
+            <span class="text-gray-700">{{ content }} </span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-10 bg-blue-200 flex flex-col items-center gap-4">
+      <h2 class="text-4xl font-bold">Contact</h2>
+      <p>Email: a0938406813@gmail.com</p>
+
+      <a
+        href="/brianhsu_resume.pdf"
+        target="_blank"
+        class="px-4 py-2 rounded text-lg font-medium bg-gray-600 text-gray-200 hover:bg-gray-200 hover:text-gray-700 transition"
+      >
+        <FontAwesomeIcon :icon="faCircleDown" />
+        Download Resume
+      </a>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="py-6 text-center bg-blue-200">
