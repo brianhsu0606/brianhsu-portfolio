@@ -2,6 +2,7 @@
 import { onMounted } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -83,10 +84,18 @@ onMounted(() => {
       start: "top 80%",
       toggleActions: "play reverse play reverse",
     },
-    x: (i) => (i === 0 ? -200 : 200), // 第一個往左，第二個往右
+    x: (i) => (i === 0 ? -200 : 200),
     opacity: 0,
     duration: 2,
     ease: "power3.out",
+  });
+
+  gsap.to(".arrow", {
+    y: 20,
+    repeat: -1,
+    yoyo: true,
+    duration: 0.8,
+    ease: "power1.inOut",
   });
 });
 </script>
@@ -109,7 +118,7 @@ onMounted(() => {
   <!-- Home -->
   <section
     id="home"
-    class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100"
+    class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
   >
     <div class="w-3/5 h-full flex justify-center items-center">
       <div class="flex flex-col gap-6 home-text">
@@ -141,8 +150,16 @@ onMounted(() => {
         </div>
       </div>
     </div>
+
+    <!-- Image -->
     <div class="w-2/5 h-full flex justify-center items-center">
       <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img" />
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="absolute w-full bottom-8 flex flex-col items-center arrow">
+      <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
+      <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
     </div>
   </section>
 
@@ -193,11 +210,6 @@ onMounted(() => {
   <section id="contact" class="py-20 px-8 bg-blue-200 text-center">
     <h2 class="text-4xl font-bold mb-6">Contact</h2>
     <p class="mb-4">Email: brian@example.com</p>
-    <div class="flex justify-center gap-6 text-2xl">
-      <a href="https://github.com/">GitHub</a>
-      <a href="https://linkedin.com/">LinkedIn</a>
-      <a href="https://youtube.com/">YouTube</a>
-    </div>
   </section>
 
   <!-- Footer -->
