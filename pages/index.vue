@@ -6,6 +6,17 @@ import { faChevronDown, faBook, faCircleDown } from "@fortawesome/free-solid-svg
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
+import { useSeoMeta } from "#imports";
+
+useSeoMeta({
+  title: "Brian Hsu Portfolio",
+  description: "個人作品集，包含 Vue 3、Nuxt 3、Node.js 等專案。",
+  ogTitle: "Brian Hsu Portfolio",
+  ogDescription: "展示 Vue、Nuxt、Node.js 專案與技能的個人作品集",
+  ogImage: "/images/home.jpg",
+  twitterCard: "summary_large_image",
+});
+
 const sections: string[] = ["home", "projects", "about", "contact"];
 const currentSection = ref<string>("home");
 
@@ -55,7 +66,7 @@ const projects = [
 
 const aboutList = [
   "畢業於 國立臺灣海洋大學 資訊工程學系，對前端技術有深入理解。",
-  " 熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js、Express、MongoDB 架構後端。",
+  "熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js、Express、MongoDB 架構後端。",
   "熱衷打造實用、美觀且高效的網頁應用，喜歡解決使用者體驗與介面設計上的問題。",
 ];
 
@@ -189,7 +200,11 @@ onMounted(() => {
 
     <!-- Image -->
     <div class="w-2/5 h-full flex justify-center items-center">
-      <img src="/images/home.jpg" alt="home" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img" />
+      <img
+        src="/images/home.jpg"
+        alt="Brian Hsu picture"
+        class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img"
+      />
     </div>
 
     <!-- Scroll Hint -->
@@ -209,7 +224,7 @@ onMounted(() => {
         :key="project.title"
         class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
       >
-        <img :src="project.img" :alt="project.img" class="w-[40%] h-full rounded-xl shadow-lg" />
+        <img :src="project.img" :alt="project.img + 'picture'" class="w-[40%] h-full rounded-xl shadow-lg" />
         <div class="flex flex-col justify-between gap-4">
           <h3 class="text-2xl font-black">{{ project.title }}</h3>
           <p class="text-lg">{{ project.description }}</p>
@@ -238,7 +253,11 @@ onMounted(() => {
     <div class="flex">
       <!-- About Image -->
       <div class="w-2/5 h-full flex justify-center items-center">
-        <img src="/images/about.jpg" alt="about" class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img" />
+        <img
+          src="/images/about.jpg"
+          alt="Brian Hsu picture"
+          class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img"
+        />
       </div>
 
       <!-- Description  -->
