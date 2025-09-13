@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faBook } from "@fortawesome/free-solid-svg-icons";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -29,8 +29,8 @@ const projects = [
   {
     img: "/images/project1.png",
     title: "Brian Hsu Portfolio",
-    description: "個人履歷網頁。",
-    techStack: "Nuxt 3 / TypeScript / GSAP",
+    description: "個人作品集網頁。",
+    techStack: ["Nuxt 3", "TypeScript", "GSAP"],
     github: "https://github.com/brianhsu0606/brianhsu-portfolio",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
@@ -38,7 +38,7 @@ const projects = [
     img: "/images/project1.png",
     title: "記帳小幫手",
     description: "一個簡單的記帳系統，支援新增、刪除與分析。",
-    techStack: "Vue 3 / TypeScript / Node.js / mongoDB",
+    techStack: ["Vue 3", "TypeScript", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/budget-tracker",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
@@ -46,7 +46,7 @@ const projects = [
     img: "/images/project2.png",
     title: "樂器行後台系統",
     description: "模擬樂器行的會員與商品管理後台。",
-    techStack: "Vue 3 / Node.js / mongoDB",
+    techStack: ["Vue 3", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/music-store-admin",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
@@ -65,6 +65,7 @@ onMounted(() => {
     });
   });
 
+  // Projects Section
   gsap.from(".project-card", {
     scrollTrigger: {
       trigger: "#projects",
@@ -78,6 +79,7 @@ onMounted(() => {
     ease: "power3.out",
   });
 
+  // Home Section
   gsap.from([".home-text", ".home-img"], {
     scrollTrigger: {
       trigger: "#home",
@@ -90,6 +92,7 @@ onMounted(() => {
     ease: "power3.out",
   });
 
+  // Scroll Hint
   gsap.to(".arrow", {
     y: 20,
     repeat: -1,
@@ -153,18 +156,18 @@ onMounted(() => {
 
     <!-- Image -->
     <div class="w-2/5 h-full flex justify-center items-center">
-      <img src="/images/home.jpg" alt="Brian" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img" />
+      <img src="/images/home.jpg" alt="home" class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img" />
     </div>
 
     <!-- Scroll Hint -->
-    <div class="absolute w-full bottom-8 flex flex-col items-center arrow">
+    <div class="absolute w-full bottom-6 flex flex-col items-center arrow">
       <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
       <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-12 px-12 bg-blue-50">
+  <section id="projects" class="p-12 bg-blue-50">
     <h3 class="text-4xl font-bold text-center mb-12 project-card">Projects</h3>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -174,14 +177,19 @@ onMounted(() => {
         class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
       >
         <img :src="project.img" :alt="project.img" class="w-[40%] h-full rounded-xl shadow-lg" />
-        <div class="flex flex-col justify-between gap-2 text-lg font-medium">
+        <div class="flex flex-col justify-between gap-4">
           <h3 class="text-2xl font-black">{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <div>
-            <p class="font-bold">使用技術：</p>
-            <p>{{ project.techStack }}</p>
+          <p class="text-lg font-medium">{{ project.description }}</p>
+
+          <!-- Tech Stack -->
+          <div class="flex gap-3 flex-wrap text-gray-700 text-base font-medium">
+            <div v-for="tech in project.techStack" :key="tech" class="bg-gray-200 rounded-2xl shadow px-3 py-1">
+              {{ tech }}
+            </div>
           </div>
-          <div>
+
+          <!-- Link -->
+          <div class="font-medium">
             <a :href="project.github" class="text-blue-700 hover:text-blue-500" target="_blank">GitHub 連結</a>
             <span> | </span>
             <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank">作品連結</a>
@@ -192,24 +200,33 @@ onMounted(() => {
   </section>
 
   <!-- About -->
-  <section id="about" class="py-20 px-8 bg-white text-center">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p>畢業於國立臺灣海洋大學資訊工程學系，熟悉 Vue 3、TypeScript、Tailwind CSS，熱衷於打造實用的產品。</p>
-
-    <div class="skills flex gap-4 flex-wrap justify-center">
-      <span>Vue 3</span>
-      <span>TypeScript</span>
-      <span>Tailwind CSS</span>
-      <span>Node.js</span>
-      <span>Express</span>
-      <span>MongoDB</span>
+  <section id="about" class="p-12 bg-blue-100">
+    <h2 class="text-4xl font-bold text-center mb-6">About Me</h2>
+    <div class="flex">
+      <div class="w-2/5 h-full flex justify-center items-center">
+        <img src="/images/about.jpg" alt="about" class="w-3/4 rounded-3xl border border-gray-200 shadow-xl" />
+      </div>
+      <div class="w-3/5 text-lg font-medium">
+        <p>
+          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
+          畢業於國立臺灣海洋大學資訊工程學系，對前端技術有深入理解。
+        </p>
+        <p>
+          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
+          熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js / Express / MongoDB 架構後端。
+        </p>
+        <p>
+          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
+          熱衷打造實用、美觀且高效的網頁應用，喜歡解決使用者體驗與介面設計上的問題。
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="py-20 px-8 bg-blue-200 text-center">
     <h2 class="text-4xl font-bold mb-6">Contact</h2>
-    <p class="mb-4">Email: brian@example.com</p>
+    <p class="mb-4">Email: a0938406813@gmail.com</p>
   </section>
 
   <!-- Footer -->
