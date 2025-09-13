@@ -6,7 +6,7 @@ import { faChevronDown, faBook, faCircleDown } from "@fortawesome/free-solid-svg
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
-import { useSeoMeta } from "#imports";
+import { useHead, useSeoMeta } from "#imports";
 
 useSeoMeta({
   title: "Brian Hsu Portfolio",
@@ -15,6 +15,23 @@ useSeoMeta({
   ogDescription: "展示 Vue、Nuxt、Node.js 專案與技能的個人作品集",
   ogImage: "/images/home.jpg",
   twitterCard: "summary_large_image",
+});
+
+useHead({
+  link: [{ rel: "canonical", href: "https://brianhsu.com/" }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Brian Hsu",
+        url: "https://brianhsu.com/",
+        sameAs: ["https://github.com/brianhsu0606", "https://www.linkedin.com/in/..."],
+        jobTitle: "Frontend Developer",
+      }),
+    },
+  ],
 });
 
 const sections: string[] = ["home", "projects", "about", "contact"];
