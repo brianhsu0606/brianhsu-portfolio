@@ -179,7 +179,7 @@ onMounted(() => {
 
           <!-- Social Media Icons -->
           <div class="space-x-4">
-            <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank">
+            <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
             </a>
           </div>
@@ -218,10 +218,10 @@ onMounted(() => {
 
     <!-- Projects -->
     <section id="projects" class="p-12 bg-blue-50">
-      <h3 class="text-4xl font-bold text-center mb-12 project-card">Projects</h3>
+      <h2 class="text-4xl font-bold text-center mb-12 project-card">Projects</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div
+        <article
           v-for="project in projects"
           :key="project.title"
           class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
@@ -245,12 +245,24 @@ onMounted(() => {
 
             <!-- Link -->
             <div class="font-medium">
-              <a :href="project.github" class="text-blue-700 hover:text-blue-500" target="_blank">GitHub 連結</a>
+              <a
+                :href="project.github"
+                class="text-blue-700 hover:text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub 連結</a
+              >
               <span> | </span>
-              <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank">作品連結</a>
+              <a
+                :href="project.link"
+                class="text-blue-700 hover:text-blue-500"
+                target="_blank"
+                rel="noopener noreferrer"
+                >作品連結</a
+              >
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
@@ -286,6 +298,7 @@ onMounted(() => {
       <a
         href="/brianhsu_resume.pdf"
         target="_blank"
+        rel="noopener noreferrer"
         class="px-4 py-2 rounded text-lg font-medium bg-gray-600 text-gray-200 hover:bg-gray-200 hover:text-gray-700 transition"
       >
         <FontAwesomeIcon :icon="faCircleDown" />

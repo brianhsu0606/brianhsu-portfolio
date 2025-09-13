@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     head: {
       title: "Brian Hsu Portfolio",
       meta: [{ name: "description", content: "個人作品集網站" }],
+      htmlAttrs: {
+        lang: "zh-TW",
+      },
     },
   },
   compatibilityDate: "2025-07-15",
