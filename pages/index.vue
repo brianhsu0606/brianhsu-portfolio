@@ -65,20 +65,6 @@ onMounted(() => {
     });
   });
 
-  // Projects Section
-  gsap.from(".project-card", {
-    scrollTrigger: {
-      trigger: "#projects",
-      start: "top 80%", // 當卡片上緣到達視窗 80% 高度時觸發
-      toggleActions: "play reverse play reverse",
-    },
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.3,
-    ease: "power3.out",
-  });
-
   // Home Section
   gsap.from([".home-text", ".home-img"], {
     scrollTrigger: {
@@ -89,6 +75,46 @@ onMounted(() => {
     x: (i) => (i === 0 ? -200 : 200),
     opacity: 0,
     duration: 2,
+    ease: "power3.out",
+  });
+
+  // Projects Section
+  gsap.from(".project-card", {
+    scrollTrigger: {
+      trigger: "#projects",
+      start: "top 80%", // 當卡片上緣到達視窗 80% 高度時觸發
+      toggleActions: "play reverse play reverse",
+    },
+    y: 150,
+    opacity: 0,
+    duration: 1.5,
+    stagger: 0.3,
+    ease: "power3.out",
+  });
+
+  // About Section
+  gsap.from(".about-img", {
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse",
+    },
+    x: -200,
+    opacity: 0,
+    duration: 2,
+    ease: "power3.out",
+  });
+
+  gsap.from([".about-title", ".about-text"], {
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse",
+    },
+    y: 150,
+    opacity: 0,
+    duration: 2,
+    stagger: 0.2,
     ease: "power3.out",
   });
 
@@ -201,15 +227,15 @@ onMounted(() => {
 
   <!-- About -->
   <section id="about" class="p-12 bg-blue-100">
-    <h2 class="text-4xl font-bold text-center mb-6">About Me</h2>
+    <h2 class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
     <div class="flex">
       <div class="w-2/5 h-full flex justify-center items-center">
-        <img src="/images/about.jpg" alt="about" class="w-3/4 rounded-3xl border border-gray-200 shadow-xl" />
+        <img src="/images/about.jpg" alt="about" class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img" />
       </div>
-      <div class="w-3/5 text-lg font-medium">
+      <div class="w-3/5 text-lg about-text">
         <p>
           <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
-          畢業於國立臺灣海洋大學資訊工程學系，對前端技術有深入理解。
+          畢業於 國立臺灣海洋大學 資訊工程學系，對前端技術有深入理解。
         </p>
         <p>
           <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
