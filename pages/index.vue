@@ -37,7 +37,8 @@ const projects = [
   {
     img: "/images/project1.png",
     title: "記帳小幫手",
-    description: "一個簡單的記帳系統，支援新增、刪除與分析。",
+    description:
+      "此專案為個人財務管理系統，提供收支紀錄與分類統計功能，並透過圖表呈現收支，方便使用者快速掌握財務狀況。",
     techStack: ["Vue 3", "TypeScript", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/budget-tracker",
     link: "https://budget-tracker-sigma-liart.vercel.app",
@@ -45,11 +46,17 @@ const projects = [
   {
     img: "/images/project2.png",
     title: "樂器行後台系統",
-    description: "模擬樂器行的會員與商品管理後台。",
+    description: "此專案為樂器行的後台管理系統，依據實際商業的營運流程所設計，具備會員、商品、訂單與營收管理等功能。",
     techStack: ["Vue 3", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/music-store-admin",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
+];
+
+const aboutList = [
+  "畢業於 國立臺灣海洋大學 資訊工程學系，對前端技術有深入理解。",
+  " 熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js、Express、MongoDB 架構後端。",
+  "熱衷打造實用、美觀且高效的網頁應用，喜歡解決使用者體驗與介面設計上的問題。",
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -82,12 +89,12 @@ onMounted(() => {
   gsap.from(".project-card", {
     scrollTrigger: {
       trigger: "#projects",
-      start: "top 80%", // 當卡片上緣到達視窗 80% 高度時觸發
+      start: "top 80%",
       toggleActions: "play reverse play reverse",
     },
     y: 150,
     opacity: 0,
-    duration: 1.5,
+    duration: 1.2,
     stagger: 0.3,
     ease: "power3.out",
   });
@@ -158,7 +165,7 @@ onMounted(() => {
         </h1>
         <p class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</p>
 
-        <!-- Icons -->
+        <!-- Social Media Icons -->
         <div class="space-x-4">
           <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank">
             <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
@@ -205,7 +212,7 @@ onMounted(() => {
         <img :src="project.img" :alt="project.img" class="w-[40%] h-full rounded-xl shadow-lg" />
         <div class="flex flex-col justify-between gap-4">
           <h3 class="text-2xl font-black">{{ project.title }}</h3>
-          <p class="text-lg font-medium">{{ project.description }}</p>
+          <p class="text-lg">{{ project.description }}</p>
 
           <!-- Tech Stack -->
           <div class="flex gap-3 flex-wrap text-gray-700 text-base font-medium">
@@ -229,30 +236,25 @@ onMounted(() => {
   <section id="about" class="p-12 bg-blue-100">
     <h2 class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
     <div class="flex">
+      <!-- About Image -->
       <div class="w-2/5 h-full flex justify-center items-center">
         <img src="/images/about.jpg" alt="about" class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img" />
       </div>
-      <div class="w-3/5 text-lg about-text">
-        <p>
-          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
-          畢業於 國立臺灣海洋大學 資訊工程學系，對前端技術有深入理解。
-        </p>
-        <p>
-          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
-          熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js / Express / MongoDB 架構後端。
-        </p>
-        <p>
-          <FontAwesomeIcon :icon="faBook" class="text-blue-600 mr-2" />
-          熱衷打造實用、美觀且高效的網頁應用，喜歡解決使用者體驗與介面設計上的問題。
+
+      <!-- Description  -->
+      <div class="w-3/5 space-y-4 about-text">
+        <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl">
+          <FontAwesomeIcon :icon="faBook" class="text-gray-600 mt-1" />
+          <span class="text-gray-700">{{ content }} </span>
         </p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 px-8 bg-blue-200 text-center">
-    <h2 class="text-4xl font-bold mb-6">Contact</h2>
-    <p class="mb-4">Email: a0938406813@gmail.com</p>
+  <section id="contact" class="py-10 bg-blue-200 text-center">
+    <h2 class="text-4xl font-bold">Contact</h2>
+    <p>Email: a0938406813@gmail.com</p>
   </section>
 
   <!-- Footer -->
