@@ -1,0 +1,93 @@
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import gsap from "gsap";
+
+const icons = [
+  { name: faGithub, url: "https://github.com/brianhsu0606" },
+  { name: faLinkedin, url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" },
+];
+
+const skills = [
+  {
+    category: "frontend",
+    item: ["Vue 3", "Nuxt 3", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    category: "backend",
+    item: ["Node.js", "Express", "MongoDB"],
+  },
+];
+
+onMounted(() => {
+  gsap.from([".home-text", ".home-img"], {
+    scrollTrigger: {
+      trigger: "#home",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse",
+    },
+    x: (i) => (i === 0 ? -200 : 200),
+    opacity: 0,
+    duration: 2,
+    ease: "power3.out",
+  });
+});
+</script>
+
+<template>
+  <section
+    id="home"
+    class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+  >
+    <div class="w-3/5 h-full flex justify-center items-center">
+      <div class="flex flex-col gap-6 home-text">
+        <h1
+          class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+        >
+          Hi, I’m Brian Hsu
+        </h1>
+        <h2 class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</h2>
+
+        <!-- Social Media Icons -->
+        <div class="space-x-4">
+          <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
+          </a>
+        </div>
+
+        <!-- Skills -->
+        <div v-for="group in skills" :key="group.category" class="text-xl font-medium text-white">
+          <div class="flex gap-4">
+            <div
+              v-for="skill in group.item"
+              :key="skill"
+              class="px-6 py-4 bg-gray-600 rounded-full shadow-md transform hover:-translate-y-1 hover:scale-105 transition"
+            >
+              {{ skill }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="w-2/5 h-full flex justify-center items-center">
+      <img
+        src="/images/home.jpg"
+        alt="Brian Hsu picture"
+        loading="lazy"
+        class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img"
+      />
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="absolute w-full bottom-6 flex flex-col items-center arrow">
+      <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
+      <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
+    </div>
+  </section>
+</template>
+
+<style scoped lang="scss"></style>

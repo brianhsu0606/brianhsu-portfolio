@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: {
+    prerender: {
+      routes: ["/"], // 需要預渲染的路徑，也可以設定更多
+    },
+  },
   app: {
     head: {
       title: "Brian Hsu Portfolio",
