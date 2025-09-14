@@ -33,6 +33,14 @@ onMounted(() => {
     duration: 2,
     ease: "power3.out",
   });
+
+  gsap.to(".arrow", {
+    y: 20,
+    repeat: -1,
+    yoyo: true,
+    duration: 0.8,
+    ease: "power1.inOut",
+  });
 });
 </script>
 
