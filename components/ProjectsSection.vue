@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { Project } from "@/types";
 import { onMounted } from "vue";
 import gsap from "gsap";
 
-const projects = [
+const projects: Project[] = [
   {
     img: "/images/project1.png",
     title: "Brian Hsu Portfolio",

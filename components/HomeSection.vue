@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import type { Icon, Skill } from "@/types";
 import { onMounted } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
-const icons = [
+const icons: Icon[] = [
   { name: faGithub, url: "https://github.com/brianhsu0606" },
   { name: faLinkedin, url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" },
 ];
 
-const skills = [
+const skills: Skill[] = [
   {
     category: "frontend",
     item: ["Vue 3", "Nuxt 3", "TypeScript", "Tailwind CSS"],
