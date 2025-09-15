@@ -4,8 +4,8 @@ import { faCircleDown } from "@fortawesome/free-solid-svg-icons";
 </script>
 
 <template>
-  <section id="contact" class="py-10 bg-blue-200 flex flex-col items-center gap-4">
-    <h2 class="text-4xl font-bold">Contact</h2>
+  <section id="contact" class="py-10 bg-blue-200 flex flex-col items-center gap-4" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="text-4xl font-bold">Contact</h2>
     <p>Email: a0938406813@gmail.com</p>
 
     <a

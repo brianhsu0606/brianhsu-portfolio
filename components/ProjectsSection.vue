@@ -48,8 +48,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="projects" class="p-12 bg-blue-50">
-    <h2 class="text-4xl font-bold text-center mb-12 project-card">Projects</h2>
+  <section id="projects" class="p-12 bg-blue-50" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="text-4xl font-bold text-center mb-12 project-card">Projects</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <article

@@ -53,10 +53,12 @@ onMounted(() => {
   <section
     id="home"
     class="h-[90vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+    aria-labelledby="home-title"
   >
     <div class="w-3/5 h-full flex justify-center items-center">
       <div class="flex flex-col gap-6 home-text">
         <h1
+          id="home-title"
           class="text-5xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
         >
           Hi, I’m Brian Hsu
