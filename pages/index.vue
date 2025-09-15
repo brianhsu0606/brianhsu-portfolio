@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
 useSeoMeta({
-  title: "Brian Hsu Portfolio",
+  title: "徐碩嶽 | Brian Hsu Portfolio",
   description: "個人作品集，包含 Vue 3、Nuxt 3、Node.js 等專案。",
   ogTitle: "Brian Hsu Portfolio",
   ogDescription: "展示 Vue、Nuxt、Node.js 專案與技能的個人作品集",
@@ -51,7 +51,7 @@ onMounted(() => {
 <template>
   <!-- Header -->
   <header
-    class="sticky top-0 z-50 backdrop-blur bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[10vh] text-2xl font-bold text-white"
+    class="sticky top-0 z-50 backdrop-blur text-2xl font-bold text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[10vh]"
   >
     <h3>Brian Hsu</h3>
     <nav>

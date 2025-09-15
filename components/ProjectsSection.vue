@@ -32,7 +32,7 @@ const projects: Project[] = [
 ];
 
 onMounted(() => {
-  gsap.from(".project-card", {
+  gsap.from(".project-item", {
     scrollTrigger: {
       trigger: "#projects",
       start: "top 80%",
@@ -48,14 +48,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="projects" class="p-12 bg-blue-50" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="text-4xl font-bold text-center mb-12 project-card">Projects</h2>
+  <section id="projects" class="p-12 bg-blue-50 border-b" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="text-4xl font-bold text-center mb-12 project-item">Projects</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <article
         v-for="project in projects"
         :key="project.title"
-        class="flex gap-4 bg-white shadow rounded-xl p-6 project-card"
+        class="flex gap-4 bg-gray-100 border shadow-lg rounded-xl p-6 project-item"
       >
         <img
           :src="project.img"
@@ -81,12 +81,13 @@ onMounted(() => {
               class="text-blue-700 hover:text-blue-500"
               target="_blank"
               rel="noopener noreferrer"
-              >GitHub 連結</a
             >
+              GitHub 連結
+            </a>
             <span> | </span>
-            <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank" rel="noopener noreferrer"
-              >作品連結</a
-            >
+            <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank" rel="noopener noreferrer">
+              作品連結
+            </a>
           </div>
         </div>
       </article>

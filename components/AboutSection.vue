@@ -39,7 +39,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" class="p-12 bg-blue-100" aria-labelledby="about-title">
+  <section id="about" class="p-12 bg-indigo-100 border-b" aria-labelledby="about-title">
     <h2 id="about-title" class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
     <div class="flex">
       <!-- About Image -->
