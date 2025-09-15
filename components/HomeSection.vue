@@ -7,8 +7,12 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
 const icons: Icon[] = [
-  { name: faGithub, url: "https://github.com/brianhsu0606" },
-  { name: faLinkedin, url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/" },
+  { name: faGithub, url: "https://github.com/brianhsu0606", label: "Visit my GitHub profile" },
+  {
+    name: faLinkedin,
+    url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/",
+    label: "Visit my LinkedIn profile",
+  },
 ];
 
 const skills: Skill[] = [
@@ -61,7 +65,14 @@ onMounted(() => {
 
         <!-- Social Media Icons -->
         <div class="space-x-4">
-          <a v-for="item in icons" :key="item.url" :href="item.url" target="_blank" rel="noopener noreferrer">
+          <a
+            v-for="item in icons"
+            :key="item.url"
+            :href="item.url"
+            :aria-label="item.label"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
           </a>
         </div>
