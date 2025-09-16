@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import type { Project } from "@/types";
 import { onMounted } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
 const projects: Project[] = [
   {
-    img: "/images/project1.png",
+    img: "/images/portfolio.png",
     title: "Brian Hsu Portfolio",
-    description: "個人作品集網頁。",
-    techStack: ["Nuxt 3", "TypeScript", "GSAP"],
+    description: "個人作品集網頁，練習 GSAP 動畫，及埋 GA。",
+    techStack: ["Nuxt 3", "TypeScript", "GSAP", "GA", "a11y"],
     github: "https://github.com/brianhsu0606/brianhsu-portfolio",
     link: "https://budget-tracker-sigma-liart.vercel.app",
   },
@@ -41,52 +43,62 @@ onMounted(() => {
     y: 150,
     opacity: 0,
     duration: 1.2,
-    stagger: 0.3,
+    stagger: 0.2,
     ease: "power3.out",
   });
 });
 </script>
 
 <template>
-  <section id="projects" class="p-12 bg-blue-50 border-b" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="text-4xl font-bold text-center mb-12 project-item">Projects</h2>
+  <section id="projects" class="p-12 bg-blue-50 border-b overflow-y-hidden" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="text-4xl font-bold text-center mb-10 project-item">Projects</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <article
         v-for="project in projects"
         :key="project.title"
-        class="flex gap-4 bg-gray-100 border shadow-lg rounded-xl p-6 project-item"
+        class="flex flex-col sm:flex-row gap-4 bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
       >
-        <img
-          :src="project.img"
-          :alt="project.img + 'picture'"
-          loading="lazy"
-          class="w-[40%] h-full rounded-xl shadow-lg"
-        />
-        <div class="flex flex-col justify-between gap-4">
+        <!-- Picture -->
+        <div class="w-full sm:w-[45%] border-r">
+          <img :src="project.img" :alt="project.title + ' picture'" loading="lazy" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- Description -->
+        <div class="w-full sm:w-[55%] flex flex-col justify-between gap-6 py-5 px-2">
           <h3 class="text-2xl font-black">{{ project.title }}</h3>
           <p class="text-lg">{{ project.description }}</p>
 
           <!-- Tech Stack -->
-          <div class="flex gap-3 flex-wrap text-gray-700 text-base font-medium">
-            <div v-for="tech in project.techStack" :key="tech" class="bg-gray-200 rounded-2xl shadow px-3 py-1">
+          <div class="flex gap-3 flex-wrap text-base font-medium">
+            <div
+              v-for="tech in project.techStack"
+              :key="tech"
+              class="bg-gray-200 text-gray-700 rounded-2xl shadow px-3 py-1"
+            >
               {{ tech }}
             </div>
           </div>
 
           <!-- Link -->
-          <div class="font-medium">
+          <div class="flex gap-2 justify-end mr-4">
             <a
               :href="project.github"
-              class="text-blue-700 hover:text-blue-500"
+              class="py-2 px-3 rounded bg-gray-700 text-gray-200 hover:bg-gray-500 transition"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub 連結
+              GitHub
+              <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
             </a>
-            <span> | </span>
-            <a :href="project.link" class="text-blue-700 hover:text-blue-500" target="_blank" rel="noopener noreferrer">
-              作品連結
+            <a
+              :href="project.link"
+              class="py-2 px-3 rounded bg-gray-700 text-gray-200 hover:bg-gray-500 transition"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Website
+              <FontAwesomeIcon :icon="faArrowUpRightFromSquare" />
             </a>
           </div>
         </div>

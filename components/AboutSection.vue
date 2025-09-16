@@ -5,9 +5,11 @@ import { faBook } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
 const aboutList: string[] = [
-  "畢業於 國立臺灣海洋大學 資訊工程學系，對前端技術有深入理解。",
-  "熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js、Express、MongoDB 架構後端。",
-  "熱衷打造實用、美觀且高效的網頁應用，喜歡解決使用者體驗與介面設計上的問題。",
+  "畢業於 國立臺灣海洋大學 資訊工程學系，具紮實前端基礎與程式思維。",
+  "熟悉 Vue 3、Nuxt 3、TypeScript、Tailwind CSS，並能結合 Node.js、Express、MongoDB 完成全端開發。",
+  "完成三個個人專案：作品集網站、財務管理系統、樂器行後台管理系統，實踐前後端整合與介面設計。",
+  "熱衷打造實用、美觀且高效的網頁應用，專注於使用者體驗與介面優化。",
+  "持續學習新技術，提升前端開發能力與專案品質。",
 ];
 
 onMounted(() => {
@@ -39,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" class="p-12 bg-indigo-100 border-b" aria-labelledby="about-title">
+  <section id="about" class="p-12 bg-indigo-100 border-b overflow-y-hidden" aria-labelledby="about-title">
     <h2 id="about-title" class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
     <div class="flex">
       <!-- About Image -->

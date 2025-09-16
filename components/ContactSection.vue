@@ -12,16 +12,16 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
     <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Info -->
       <address class="not-italic text-lg flex flex-col items-start gap-2 text-left ml-auto max-w-md">
-        <p class="font-semibold">
-          <FontAwesomeIcon :icon="faUserTie" />
+        <p>
+          <FontAwesomeIcon :icon="faUserTie" class="mr-2" />
           徐碩嶽 Brian Hsu
         </p>
         <p>
-          <FontAwesomeIcon :icon="faLocationDot" />
+          <FontAwesomeIcon :icon="faLocationDot" class="mr-2" />
           Based in Taoyuan, Taiwan
         </p>
         <p>
-          <FontAwesomeIcon :icon="faEnvelope" />
+          <FontAwesomeIcon :icon="faEnvelope" class="mr-2" />
           a0938406813@gmail.com
         </p>
         <p class="text-gray-600">Feel free to reach me out!</p>
