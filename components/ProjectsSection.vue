@@ -9,7 +9,7 @@ const projects: Project[] = [
   {
     img: "/images/portfolio.png",
     title: "Brian Hsu Portfolio",
-    description: "個人作品集網頁，練習 GSAP 動畫，及埋 GA。",
+    description: "個人作品集網頁，練習 GSAP 動畫及埋 GA。",
     techStack: ["Nuxt 3", "TypeScript", "GSAP", "GA", "a11y"],
     github: "https://github.com/brianhsu0606/brianhsu-portfolio",
     link: "https://budget-tracker-sigma-liart.vercel.app",
@@ -53,11 +53,11 @@ onMounted(() => {
   <section id="projects" class="p-12 bg-blue-50 border-b overflow-y-hidden" aria-labelledby="projects-title">
     <h2 id="projects-title" class="text-4xl font-bold text-center mb-10 project-item">Projects</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div class="flex flex-col items-center gap-6">
       <article
         v-for="project in projects"
         :key="project.title"
-        class="flex flex-col sm:flex-row gap-4 bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
+        class="flex flex-col sm:flex-row w-[70%] bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
       >
         <!-- Picture -->
         <div class="w-full sm:w-[45%] border-r">
@@ -65,7 +65,7 @@ onMounted(() => {
         </div>
 
         <!-- Description -->
-        <div class="w-full sm:w-[55%] flex flex-col justify-between gap-6 py-5 px-2">
+        <div class="w-full sm:w-[55%] flex flex-col justify-between gap-6 py-5 px-6">
           <h3 class="text-2xl font-black">{{ project.title }}</h3>
           <p class="text-lg">{{ project.description }}</p>
 
@@ -81,7 +81,7 @@ onMounted(() => {
           </div>
 
           <!-- Link -->
-          <div class="flex gap-2 justify-end mr-4">
+          <div class="flex gap-2 justify-end">
             <a
               :href="project.github"
               class="py-2 px-3 rounded bg-gray-700 text-gray-200 hover:bg-gray-500 transition"
