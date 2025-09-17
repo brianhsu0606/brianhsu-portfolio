@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const icons: Icon[] = [
   { name: faGithub, url: "https://github.com/brianhsu0606", label: "Visit my GitHub profile" },

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useHead, useSeoMeta } from "#imports";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import gsap from "gsap";
-let isGsapRegistered = false;
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// let isGsapRegistered = false;
 
 useSeoMeta({
   title: "徐碩嶽 | Brian Hsu",
@@ -34,25 +34,24 @@ useHead({
 });
 
 const sections: string[] = ["home", "skills", "projects", "about", "contact"];
-const currentSection = ref<string>("home");
+// const currentSection = ref<string>("home");
 
 const isMenuOpen = ref<boolean>(false);
 
-onMounted(async () => {
-  if (!isGsapRegistered) {
-    gsap.registerPlugin(ScrollTrigger);
-    isGsapRegistered = true;
-  }
-
-  sections.forEach((id) => {
-    ScrollTrigger.create({
-      trigger: `#${id}`,
-      start: "top 20%",
-      end: "bottom 20%",
-      onEnter: () => (currentSection.value = id),
-      onEnterBack: () => (currentSection.value = id),
-    });
-  });
+onMounted(() => {
+  // if (!isGsapRegistered) {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   isGsapRegistered = true;
+  // }
+  // sections.forEach((id) => {
+  //   ScrollTrigger.create({
+  //     trigger: `#${id}`,
+  //     start: "top 20%",
+  //     end: "bottom 20%",
+  //     onEnter: () => (currentSection.value = id),
+  //     onEnterBack: () => (currentSection.value = id),
+  //   });
+  // });
 });
 </script>
 
@@ -65,7 +64,7 @@ onMounted(async () => {
 
     <nav class="hidden sm:block text-xl font-bold">
       <ul class="flex flex-col sm:flex-row sm:gap-8">
-        <li v-for="section in sections" :key="section" :class="{ 'text-orange-400': currentSection === section }">
+        <li v-for="section in sections" :key="section">
           <NuxtLink :to="'#' + section">{{ section.toUpperCase() }}</NuxtLink>
         </li>
       </ul>
@@ -81,12 +80,7 @@ onMounted(async () => {
     <transition name="slide">
       <nav v-if="isMenuOpen" class="sm:hidden absolute top-[8vh] left-0 w-full bg-gray-900/90 text-center z-40">
         <ul class="flex flex-col text-lg font-bold">
-          <li
-            v-for="section in sections"
-            :key="section"
-            :class="{ 'text-orange-400': currentSection === section }"
-            @click="isMenuOpen = false"
-          >
+          <li v-for="section in sections" :key="section" @click="isMenuOpen = false">
             <NuxtLink :to="'#' + section" class="block w-full py-3 border-t border-gray-500">
               {{ section.toUpperCase() }}
             </NuxtLink>
