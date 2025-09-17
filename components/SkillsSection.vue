@@ -56,7 +56,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="skills" class="flex flex-col items-center bg-emerald-50 border-b py-12" aria-labelledby="skills-title">
+  <section
+    id="skills"
+    class="flex flex-col items-center bg-emerald-50 border-b py-12 overflow-hidden"
+    aria-labelledby="skills-title"
+  >
     <h2 id="skills-title" class="text-4xl font-bold mb-16 skills-title">Skills</h2>
 
     <div class="grid grid-cols-3 sm:grid-cols-4 gap-6 w-4/5 sm:w-1/2 2xl:w-1/3">

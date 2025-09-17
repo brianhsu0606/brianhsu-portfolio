@@ -37,7 +37,7 @@ onMounted(() => {
   gsap.from(".project-item", {
     scrollTrigger: {
       trigger: "#projects",
-      start: "top 80%",
+      start: "top 90%",
       toggleActions: "play reverse play reverse",
     },
     y: 150,
@@ -52,7 +52,7 @@ onMounted(() => {
 <template>
   <section
     id="projects"
-    class="py-12 bg-blue-50 flex flex-col items-center border-b overflow-y-hidden"
+    class="py-12 bg-blue-50 flex flex-col items-center border-b overflow-hidden"
     aria-labelledby="projects-title"
   >
     <h2 id="projects-title" class="text-4xl font-bold mb-16 project-item">Projects</h2>

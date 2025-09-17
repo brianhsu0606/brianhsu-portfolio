@@ -9,7 +9,7 @@ onMounted(() => {
   gsap.from(".contact-item", {
     scrollTrigger: {
       trigger: "#contact",
-      start: "top 80%",
+      start: "top 90%",
       toggleActions: "play reverse play reverse",
     },
     y: 100,
@@ -21,7 +21,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="contact" class="py-10 bg-blue-50 flex flex-col items-center" aria-labelledby="contact-title">
+  <section
+    id="contact"
+    class="py-10 bg-blue-50 flex flex-col items-center overflow-hidden"
+    aria-labelledby="contact-title"
+  >
     <h2 id="contact-title" class="text-4xl font-bold mb-12 contact-item">Contact</h2>
 
     <div class="max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-0 contact-item">

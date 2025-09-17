@@ -16,24 +16,24 @@ onMounted(() => {
   gsap.from(".about-img", {
     scrollTrigger: {
       trigger: "#about",
-      start: "top 80%",
+      start: "top 90%",
       toggleActions: "play reverse play reverse",
     },
     x: -200,
     opacity: 0,
-    duration: 2,
+    duration: 1.5,
     ease: "power3.out",
   });
 
   gsap.from([".about-title", ".about-text"], {
     scrollTrigger: {
       trigger: "#about",
-      start: "top 80%",
+      start: "top 90%",
       toggleActions: "play reverse play reverse",
     },
     y: 150,
     opacity: 0,
-    duration: 2,
+    duration: 1.5,
     stagger: 0.08,
     ease: "power3.out",
   });
@@ -43,7 +43,7 @@ onMounted(() => {
 <template>
   <section
     id="about"
-    class="p-12 bg-emerald-50 flex flex-col items-center border-b overflow-y-hidden"
+    class="p-12 bg-emerald-50 flex flex-col items-center border-b overflow-hidden"
     aria-labelledby="about-title"
   >
     <h2 id="about-title" class="text-4xl font-bold mb-16 about-title">About Me</h2>
