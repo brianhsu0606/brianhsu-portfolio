@@ -6,12 +6,14 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import gsap from "gsap";
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768;
+
   gsap.from(".contact-item", {
     scrollTrigger: {
       trigger: "#contact",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     y: 100,
     opacity: 0,

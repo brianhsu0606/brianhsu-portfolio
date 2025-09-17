@@ -34,12 +34,14 @@ const projects: Project[] = [
 ];
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768;
+
   gsap.from(".project-item", {
     scrollTrigger: {
       trigger: "#projects",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     y: 150,
     opacity: 0,

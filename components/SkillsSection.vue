@@ -15,12 +15,14 @@ const skills: Skill[] = [
 ];
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768;
+
   gsap.from(".skills-title", {
     scrollTrigger: {
       trigger: "#skills",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse ",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     y: 200,
     opacity: 0,
@@ -33,7 +35,7 @@ onMounted(() => {
       trigger: "#skills",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     x: -100,
     opacity: 0,
@@ -47,7 +49,7 @@ onMounted(() => {
       trigger: "#skills",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     x: 100,
     opacity: 0,

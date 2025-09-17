@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// gsap.registerPlugin(ScrollTrigger);
 
 const icons: Icon[] = [
   { name: faGithub, url: "https://github.com/brianhsu0606", label: "Visit my GitHub profile" },
@@ -18,12 +16,14 @@ const icons: Icon[] = [
 ];
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768;
+
   gsap.from([".home-text", ".home-img"], {
     scrollTrigger: {
       trigger: "#home",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     x: (i) => (i === 0 ? -200 : 200),
     opacity: 0,

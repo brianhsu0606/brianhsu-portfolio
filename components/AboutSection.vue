@@ -13,12 +13,14 @@ const aboutList: string[] = [
 ];
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768;
+
   gsap.from(".about-img", {
     scrollTrigger: {
       trigger: "#about",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     x: -200,
     opacity: 0,
@@ -31,7 +33,7 @@ onMounted(() => {
       trigger: "#about",
       start: "top 90%",
       end: "bottom 10%",
-      toggleActions: "play reverse play reverse",
+      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
     y: 150,
     opacity: 0,
