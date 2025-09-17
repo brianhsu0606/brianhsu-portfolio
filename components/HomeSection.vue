@@ -39,12 +39,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <section
+  <!-- <section
     id="home"
     class="h-[90vh] 2xl:h-[94vh] flex flex-col sm:flex-row border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
     aria-labelledby="home-title"
   >
-    <div class="w-full sm:w-3/5 h-full flex justify-center items-center">
+    <div class="w-full h-full flex justify-center items-center bg-gray-200">
       <div class="flex flex-col gap-6 home-text">
         <h1
           id="home-title"
@@ -54,7 +54,10 @@ onMounted(() => {
         </h1>
         <h2 class="text-3xl font-semibold text-gray-700 tracking-wide">Frontend Developer</h2>
 
-        <!-- Social Media Icons -->
+        <p class="text-lg font-medium">
+          "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs
+        </p>
+
         <div class="space-x-4">
           <a
             v-for="item in icons"
@@ -70,14 +73,60 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Image -->
-    <div class="w-full sm:w-2/5 h-full flex justify-center items-center">
+    <div class="w-full h-full flex justify-center items-center bg-gray-400">
       <img
         src="/images/home.jpg"
         alt="Brian Hsu picture"
         loading="lazy"
-        class="w-1/2 rounded-3xl border border-gray-200 shadow-xl home-img"
+        class="w-1/3 rounded-3xl border border-gray-200 shadow-xl home-img"
       />
+    </div>
+
+    <div class="absolute w-full bottom-6 flex flex-col items-center arrow">
+      <FontAwesomeIcon :icon="faChevronDown" class="w-8 h-8 text-gray-700" />
+      <h3 class="text-gray-700 text-lg font-bold">Scroll Down</h3>
+    </div>
+  </section> -->
+  <section
+    id="home"
+    class="h-[90vh] 2xl:h-[94vh] flex justify-center items-center border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+    aria-labelledby="home-title"
+  >
+    <div class="w-[90%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-20">
+      <!-- 左邊文字 -->
+      <div class="flex flex-col gap-8 home-text flex-1 min-w-[380px] max-w-[500px]">
+        <h1
+          id="home-title"
+          class="text-7xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+        >
+          Brian Hsu
+        </h1>
+        <h2 class="text-gray-700 text-4xl font-semibold">Frontend Developer</h2>
+
+        <div class="text-gray-600 text-lg font-medium">
+          <p class="mb-1">"Design is not just what it looks like and feels like. Design is how it works."</p>
+          <p class="text-right">- Steve Jobs</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="space-x-4">
+          <a
+            v-for="item in icons"
+            :key="item.url"
+            :href="item.url"
+            :aria-label="item.label"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-700 hover:text-gray-600 transition" />
+          </a>
+        </div>
+      </div>
+
+      <!-- 右邊圖片 -->
+      <div class="flex justify-center items-center min-w-[360px] max-w-[400px] home-img bg-white rounded-xl">
+        <img src="/images/home.svg" alt="home picture" loading="lazy" class="w-full h-auto" />
+      </div>
     </div>
 
     <!-- Scroll Hint -->
