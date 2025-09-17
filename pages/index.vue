@@ -43,8 +43,8 @@ onMounted(() => {
   sections.forEach((id) => {
     ScrollTrigger.create({
       trigger: `#${id}`,
-      start: "top center", // 區塊到視窗中間時觸發
-      end: "bottom center",
+      start: "top 20%",
+      end: "bottom 20%",
       onEnter: () => (currentSection.value = id),
       onEnterBack: () => (currentSection.value = id),
     });
