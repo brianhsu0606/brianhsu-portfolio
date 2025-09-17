@@ -44,9 +44,9 @@ onMounted(() => {
     class="h-[90vh] 2xl:h-[94vh] flex justify-center items-center border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
     aria-labelledby="home-title"
   >
-    <div class="w-[90%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-14 2xl:gap-32">
+    <div class="w-[80%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-14 2xl:gap-32">
       <!-- 左邊文字 -->
-      <div class="flex flex-col gap-4 sm:gap-8 home-text flex-1 min-w-[400px] max-w-[460px]">
+      <div class="flex flex-col gap-4 sm:gap-8 home-text flex-1 min-w-[350px] max-w-[460px]">
         <h1
           id="home-title"
           class="text-5xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
@@ -79,7 +79,9 @@ onMounted(() => {
       </div>
 
       <!-- 右邊圖片 -->
-      <div class="flex justify-center items-center min-w-[400px] max-w-[500px] home-img bg-white rounded-3xl">
+      <div
+        class="hidden sm:block flex justify-center items-center min-w-[400px] max-w-[500px] home-img bg-white rounded-3xl"
+      >
         <img src="/images/home.svg" alt="home picture" loading="lazy" class="w-full h-auto" />
       </div>
     </div>

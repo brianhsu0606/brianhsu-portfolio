@@ -61,7 +61,7 @@ onMounted(() => {
       <article
         v-for="project in projects"
         :key="project.title"
-        class="flex flex-col sm:flex-row w-[70%] 2xl:w-[50%] max-h-[300px] bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
+        class="flex flex-col sm:flex-row w-[95%] sm:w-[70%] 2xl:w-[50%] sm:max-h-[300px] bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
       >
         <!-- Img -->
         <div class="w-full sm:w-[45%] border-r">
