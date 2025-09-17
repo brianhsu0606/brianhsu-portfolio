@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
 
 useSeoMeta({
   title: "徐碩嶽 | Brian Hsu",
@@ -37,9 +38,7 @@ const currentSection = ref<string>("home");
 
 const isMenuOpen = ref<boolean>(false);
 
-onMounted(async () => {
-  gsap.registerPlugin(ScrollTrigger);
-
+onMounted(() => {
   sections.forEach((id) => {
     ScrollTrigger.create({
       trigger: `#${id}`,
