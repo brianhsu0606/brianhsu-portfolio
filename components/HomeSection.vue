@@ -46,14 +46,14 @@ onMounted(() => {
   >
     <div class="w-[90%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-14 2xl:gap-32">
       <!-- 左邊文字 -->
-      <div class="flex flex-col gap-8 home-text flex-1 min-w-[400px] max-w-[460px]">
+      <div class="flex flex-col gap-4 sm:gap-8 home-text flex-1 min-w-[400px] max-w-[460px]">
         <h1
           id="home-title"
-          class="text-6xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+          class="text-5xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
         >
           Brian Hsu
         </h1>
-        <h2 class="text-gray-700 text-4xl font-semibold">Frontend Developer</h2>
+        <h2 class="text-gray-700 text-3xl sm:text-4xl font-semibold">Frontend Developer</h2>
 
         <div class="text-gray-600 text-lg font-medium">
           <p class="mb-1">"Design is not just what it looks like and feels like. Design is how it works."</p>
@@ -79,7 +79,7 @@ onMounted(() => {
       </div>
 
       <!-- 右邊圖片 -->
-      <div class="flex justify-center items-center min-w-[400px] max-w-[500px] home-img bg-white rounded-xl">
+      <div class="flex justify-center items-center min-w-[400px] max-w-[500px] home-img bg-white rounded-3xl">
         <img src="/images/home.svg" alt="home picture" loading="lazy" class="w-full h-auto" />
       </div>
     </div>
