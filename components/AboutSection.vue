@@ -51,7 +51,7 @@ onMounted(() => {
       <!-- About Image -->
       <div class="lg:w-2/5 h-full flex justify-center items-center">
         <img
-          src="/images/123.jpg"
+          src="/images/about.jpg"
           alt="Brian Hsu picture"
           loading="lazy"
           class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img mb-8 lg:mb-0"

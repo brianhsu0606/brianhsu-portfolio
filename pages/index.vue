@@ -35,11 +35,11 @@ useHead({
 const sections: string[] = ["home", "skills", "projects", "about", "contact"];
 const currentSection = ref<string>("home");
 
-gsap.registerPlugin(ScrollTrigger);
-
 const isMenuOpen = ref<boolean>(false);
 
-onMounted(() => {
+onMounted(async () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   sections.forEach((id) => {
     ScrollTrigger.create({
       trigger: `#${id}`,
