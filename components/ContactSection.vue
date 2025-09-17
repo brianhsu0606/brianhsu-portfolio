@@ -33,7 +33,7 @@ onMounted(() => {
         </p>
         <p>
           <FontAwesomeIcon :icon="faLocationDot" class="mr-2" />
-          Based in Taoyuan, Taiwan
+          Taoyuan, Taiwan
         </p>
         <p>
           <FontAwesomeIcon :icon="faEnvelope" class="mr-2" />
@@ -46,15 +46,6 @@ onMounted(() => {
       <div class="flex flex-col items-start gap-6 contact-item">
         <!-- Links -->
         <ul class="flex flex-wrap gap-4">
-          <li>
-            <a
-              href="mailto:a0938406813@gmail.com"
-              class="px-4 py-2 rounded bg-gray-600 text-gray-200 hover:bg-gray-500 transition inline-flex items-center gap-2"
-            >
-              <FontAwesomeIcon :icon="faEnvelope" />
-              Email
-            </a>
-          </li>
           <li>
             <a
               href="https://github.com/brianhsu0606"
@@ -75,6 +66,15 @@ onMounted(() => {
             >
               <FontAwesomeIcon :icon="faLinkedin" />
               LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:a0938406813@gmail.com"
+              class="px-4 py-2 rounded bg-gray-600 text-gray-200 hover:bg-gray-500 transition inline-flex items-center gap-2"
+            >
+              <FontAwesomeIcon :icon="faEnvelope" />
+              Email
             </a>
           </li>
         </ul>
