@@ -12,10 +12,10 @@ export interface Skill {
 }
 
 export interface Project {
-  img: string;
   title: string;
   description: string;
   techStack: string[];
   github: string;
   link: string;
+  img: string;
 }

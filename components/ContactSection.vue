@@ -6,7 +6,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 <template>
   <section id="contact" class="py-10 bg-blue-50 flex flex-col items-center gap-6" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="text-4xl font-bold">Contact Me</h2>
+    <h2 id="contact-title" class="text-4xl font-bold">Contact</h2>
 
     <!-- Grid: 手機一欄，桌機兩欄 -->
     <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">

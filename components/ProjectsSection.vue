@@ -7,29 +7,29 @@ import gsap from "gsap";
 
 const projects: Project[] = [
   {
-    img: "/images/portfolio.png",
     title: "Brian Hsu Portfolio",
     description: "個人作品集網頁，練習 GSAP 動畫及埋 GA。",
     techStack: ["Nuxt 3", "TypeScript", "GSAP", "GA", "a11y"],
     github: "https://github.com/brianhsu0606/brianhsu-portfolio",
     link: "https://budget-tracker-sigma-liart.vercel.app",
+    img: "/images/projects/portfolio.png",
   },
   {
-    img: "/images/project1.png",
     title: "記帳小幫手",
     description:
       "此專案為個人財務管理系統，提供收支紀錄與分類統計功能，並透過圖表呈現收支，方便使用者快速掌握財務狀況。",
     techStack: ["Vue 3", "TypeScript", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/budget-tracker",
     link: "https://budget-tracker-sigma-liart.vercel.app",
+    img: "/images/projects/budget.png",
   },
   {
-    img: "/images/project2.png",
     title: "樂器行後台系統",
     description: "此專案為樂器行的後台管理系統，依據實際商業的營運流程所設計，具備會員、商品、訂單與營收管理等功能。",
     techStack: ["Vue 3", "ECharts", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/brianhsu0606/music-store-admin",
     link: "https://budget-tracker-sigma-liart.vercel.app",
+    img: "/images/projects/music.png",
   },
 ];
 
@@ -57,9 +57,9 @@ onMounted(() => {
       <article
         v-for="project in projects"
         :key="project.title"
-        class="flex flex-col sm:flex-row w-[70%] bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
+        class="flex flex-col sm:flex-row w-[70%] 2xl:w-[50%] max-h-[300px] bg-white border shadow-lg rounded-xl overflow-x-hidden project-item"
       >
-        <!-- Picture -->
+        <!-- Img -->
         <div class="w-full sm:w-[45%] border-r">
           <img :src="project.img" :alt="project.title + ' picture'" loading="lazy" class="w-full h-full object-cover" />
         </div>

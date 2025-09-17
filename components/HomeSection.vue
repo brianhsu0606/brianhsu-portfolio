@@ -52,10 +52,10 @@ onMounted(() => {
 <template>
   <section
     id="home"
-    class="h-[90vh] 2xl:h-[94vh] flex border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+    class="h-[90vh] 2xl:h-[94vh] flex flex-col sm:flex-row border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
     aria-labelledby="home-title"
   >
-    <div class="w-3/5 h-full flex justify-center items-center">
+    <div class="w-full sm:w-3/5 h-full flex justify-center items-center">
       <div class="flex flex-col gap-6 home-text">
         <h1
           id="home-title"
@@ -81,7 +81,7 @@ onMounted(() => {
 
         <!-- Skills -->
         <div v-for="group in skills" :key="group.category" class="text-xl font-medium text-white">
-          <div class="flex gap-4">
+          <div class="flex flex-wrap gap-4">
             <div
               v-for="skill in group.item"
               :key="skill"
@@ -95,7 +95,7 @@ onMounted(() => {
     </div>
 
     <!-- Image -->
-    <div class="w-2/5 h-full flex justify-center items-center">
+    <div class="w-full sm:w-2/5 h-full flex justify-center items-center">
       <img
         src="/images/home.jpg"
         alt="Brian Hsu picture"

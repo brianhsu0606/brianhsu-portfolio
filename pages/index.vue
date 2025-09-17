@@ -5,9 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
 useSeoMeta({
-  title: "徐碩嶽 | Brian Hsu Portfolio",
+  title: "徐碩嶽 | Brian Hsu",
   description: "個人作品集，包含 Vue 3、Nuxt 3、Node.js 等專案。",
-  ogTitle: "Brian Hsu Portfolio",
+  ogTitle: "徐碩嶽 | Brian Hsu",
   ogDescription: "展示 Vue、Nuxt、Node.js 專案與技能的個人作品集",
   ogImage: "/images/home.jpg",
   twitterCard: "summary_large_image",
@@ -51,11 +51,11 @@ onMounted(() => {
 <template>
   <!-- Header -->
   <header
-    class="sticky top-0 z-50 backdrop-blur text-2xl font-bold text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[10vh] 2xl:h-[6vh]"
+    class="sticky top-0 z-50 backdrop-blur text-2xl font-bold text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[8vh] sm:h-[10vh] 2xl:h-[6vh]"
   >
     <h3>Brian Hsu</h3>
     <nav>
-      <ul class="flex gap-8">
+      <ul class="flex flex-col sm:flex-row sm:gap-8">
         <li v-for="section in sections" :key="section" :class="{ 'text-orange-400': currentSection === section }">
           <NuxtLink :to="'#' + section">{{ section.toUpperCase() }}</NuxtLink>
         </li>
@@ -65,6 +65,7 @@ onMounted(() => {
 
   <main>
     <HomeSection />
+    <SkillsSection />
     <ProjectsSection />
     <AboutSection />
     <ContactSection />
