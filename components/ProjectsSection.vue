@@ -38,6 +38,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: "#projects",
       start: "top 90%",
+      end: "bottom 10%",
       toggleActions: "play reverse play reverse",
     },
     y: 150,
