@@ -41,7 +41,7 @@ onMounted(() => {
 <template>
   <section
     id="home"
-    class="h-[90vh] 2xl:h-[94vh] flex justify-center items-center border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
+    class="h-[92vh] sm:h-[90vh] 2xl:h-[94vh] flex justify-center items-center border-b overflow-x-hidden bg-gradient-to-r from-orange-100 via-pink-100 to-purple-100 relative"
     aria-labelledby="home-title"
   >
     <div class="w-[80%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-14 2xl:gap-32">

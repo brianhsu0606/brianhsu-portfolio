@@ -22,11 +22,11 @@ onMounted(() => {
 
 <template>
   <section id="contact" class="py-10 bg-blue-50 flex flex-col items-center" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="text-4xl font-bold mb-16 contact-item">Contact</h2>
+    <h2 id="contact-title" class="text-4xl font-bold mb-12 contact-item">Contact</h2>
 
-    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 contact-item">
+    <div class="max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-0 contact-item">
       <!-- Info -->
-      <address class="not-italic text-lg flex flex-col items-start gap-2 text-left ml-auto max-w-md">
+      <div class="space-y-2 text-lg text-gray-700 font-medium max-w-md m-auto sm:ml-auto">
         <p>
           <FontAwesomeIcon :icon="faUserTie" class="mr-2" />
           徐碩嶽 Brian Hsu
@@ -40,12 +40,12 @@ onMounted(() => {
           a0938406813@gmail.com
         </p>
         <p class="text-gray-600">Feel free to reach me out!</p>
-      </address>
+      </div>
 
       <!-- Social -->
-      <div class="flex flex-col items-start gap-6 contact-item">
+      <div class="space-y-4 contact-item">
         <!-- Links -->
-        <ul class="flex flex-wrap gap-4">
+        <ul class="flex gap-4">
           <li>
             <a
               href="https://github.com/brianhsu0606"

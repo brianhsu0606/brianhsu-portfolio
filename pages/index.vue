@@ -55,7 +55,7 @@ onMounted(() => {
 <template>
   <!-- Header -->
   <header
-    class="sticky top-0 z-50 backdrop-blur text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[8vh] sm:h-[10vh] 2xl:h-[6vh]"
+    class="h-[8vh] sm:h-[10vh] 2xl:h-[6vh] sticky top-0 z-50 backdrop-blur text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8"
   >
     <h3 class="text-center flex-1 sm:flex-none text-2xl font-bold">Brian Hsu</h3>
 
