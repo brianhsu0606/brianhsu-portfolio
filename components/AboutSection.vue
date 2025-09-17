@@ -34,15 +34,15 @@ onMounted(() => {
     y: 150,
     opacity: 0,
     duration: 2,
-    stagger: 0.2,
+    stagger: 0.08,
     ease: "power3.out",
   });
 });
 </script>
 
 <template>
-  <section id="about" class="p-12 bg-indigo-100 border-b overflow-y-hidden" aria-labelledby="about-title">
-    <h2 id="about-title" class="text-4xl font-bold text-center mb-6 about-title">About Me</h2>
+  <section id="about" class="p-12 bg-emerald-50 border-b overflow-y-hidden" aria-labelledby="about-title">
+    <h2 id="about-title" class="text-4xl font-bold text-center mb-16 about-title">About Me</h2>
     <div class="flex">
       <!-- About Image -->
       <div class="w-2/5 h-full flex justify-center items-center">
@@ -55,10 +55,10 @@ onMounted(() => {
       </div>
 
       <!-- Description  -->
-      <div class="w-3/5 space-y-4 about-text">
-        <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl">
+      <div class="w-3/5 space-y-4 2xl:space-y-8">
+        <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl about-text">
           <FontAwesomeIcon :icon="faBook" class="text-gray-600 mt-1" />
-          <span class="text-gray-700">{{ content }} </span>
+          <span class="text-gray-700 2xl:text-2xl">{{ content }} </span>
         </p>
       </div>
     </div>

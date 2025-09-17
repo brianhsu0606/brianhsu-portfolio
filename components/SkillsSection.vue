@@ -1,14 +1,70 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Skill } from "@/types";
+import { onMounted } from "vue";
+import gsap from "gsap";
+
+const skills: Skill[] = [
+  { name: "Vue 3", icon: "/images/icons/vuejs-original.svg" },
+  { name: "Nuxt 3", icon: "/images/icons/nuxt-original.svg" },
+  { name: "Tailwind CSS", icon: "/images/icons/tailwindcss-original.svg" },
+  { name: "TypeScript", icon: "/images/icons/typeScript-original.svg" },
+  { name: "JavaScript", icon: "/images/icons/javaScript-original.svg" },
+  { name: "Node.js", icon: "/images/icons/nodejs-original-wordmark.svg" },
+  { name: "mongodb", icon: "/images/icons/mongodb-original.svg" },
+  { name: "Git", icon: "/images/icons/git-original.svg" },
+];
+
+onMounted(() => {
+  gsap.from(".skills-title", {
+    scrollTrigger: {
+      trigger: "#skills",
+      start: "top 90%",
+      toggleActions: "play reverse play reverse ",
+    },
+    y: 200,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+  });
+
+  gsap.from(".skills-item:nth-child(-n+4)", {
+    scrollTrigger: {
+      trigger: "#skills",
+      start: "top 90%",
+      toggleActions: "play reverse play reverse",
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power3.out",
+  });
+
+  gsap.from(".skills-item:nth-child(n+5)", {
+    scrollTrigger: {
+      trigger: "#skills",
+      start: "top 90%",
+      toggleActions: "play reverse play reverse",
+    },
+    x: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power3.out",
+  });
+});
+</script>
 
 <template>
-  <section class="bg-indigo-100 flex flex-col items-center">
-    <h2 class="text-4xl font-bold">Skills</h2>
-    <div class="flex items-center bg-blue-400 w-3/5">
-      <div class="flex flex-col items-center bg-yellow-200">
-        <div class="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center">
-          <img src="/images/icons/vuejs-original.svg" alt="Vue.js" class="w-12 h-12" />
+  <section id="skills" class="flex flex-col items-center bg-emerald-50 border-b py-12" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="text-4xl font-bold mb-16 skills-title">Skills</h2>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 gap-6 w-1/2 2xl:w-1/3">
+      <div v-for="skill in skills" :key="skill.name" class="flex flex-col gap-4 items-center skills-item">
+        <div class="bg-white p-4 rounded-full shadow-md">
+          <img :src="skill.icon" :alt="skill.name + 'icon'" class="w-12 h-12" />
         </div>
-        <p class="font-medium">Vue 3</p>
+        <p class="text-gray-700 text-sm sm:text-lg font-bold">{{ skill.name }}</p>
       </div>
     </div>
   </section>

@@ -7,8 +7,8 @@ export interface Icon {
 }
 
 export interface Skill {
-  category: string;
-  item: string[];
+  name: string;
+  icon: string;
 }
 
 export interface Project {

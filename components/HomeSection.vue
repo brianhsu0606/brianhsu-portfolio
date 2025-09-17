@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Icon, Skill } from "@/types";
+import type { Icon } from "@/types";
 import { onMounted } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -12,17 +12,6 @@ const icons: Icon[] = [
     name: faLinkedin,
     url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/",
     label: "Visit my LinkedIn profile",
-  },
-];
-
-const skills: Skill[] = [
-  {
-    category: "frontend",
-    item: ["Vue 3", "Nuxt 3", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    category: "backend",
-    item: ["Node.js", "Express", "MongoDB"],
   },
 ];
 
@@ -77,19 +66,6 @@ onMounted(() => {
           >
             <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-600 hover:text-amber-600 transition" />
           </a>
-        </div>
-
-        <!-- Skills -->
-        <div v-for="group in skills" :key="group.category" class="text-xl font-medium text-white">
-          <div class="flex flex-wrap gap-4">
-            <div
-              v-for="skill in group.item"
-              :key="skill"
-              class="px-6 py-4 bg-gray-600 rounded-full shadow-md transform hover:-translate-y-1 hover:scale-105 transition"
-            >
-              {{ skill }}
-            </div>
-          </div>
         </div>
       </div>
     </div>

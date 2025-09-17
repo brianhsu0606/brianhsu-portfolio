@@ -30,7 +30,7 @@ useHead({
   ],
 });
 
-const sections: string[] = ["home", "projects", "about", "contact"];
+const sections: string[] = ["home", "skills", "projects", "about", "contact"];
 const currentSection = ref<string>("home");
 
 gsap.registerPlugin(ScrollTrigger);

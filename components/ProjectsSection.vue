@@ -51,7 +51,7 @@ onMounted(() => {
 
 <template>
   <section id="projects" class="p-12 bg-blue-50 border-b overflow-y-hidden" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="text-4xl font-bold text-center mb-10 project-item">Projects</h2>
+    <h2 id="projects-title" class="text-4xl font-bold text-center mb-16 project-item">Projects</h2>
 
     <div class="flex flex-col items-center gap-6">
       <article
