@@ -45,11 +45,11 @@ onMounted(() => {
     aria-labelledby="home-title"
   >
     <div class="w-[80%] sm:w-1/2 flex flex-col sm:flex-row justify-center items-center gap-14 2xl:gap-32">
-      <!-- 左邊文字 -->
-      <div class="flex flex-col gap-4 sm:gap-8 home-text flex-1 min-w-[350px] max-w-[460px]">
+      <!-- Title, Text -->
+      <div class="space-y-4 sm:space-y-6 home-text min-w-[350px] max-w-[460px]">
         <h1
           id="home-title"
-          class="text-5xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+          class="text-6xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
         >
           Brian Hsu
         </h1>
@@ -78,9 +78,9 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- 右邊圖片 -->
+      <!-- Home Image -->
       <div
-        class="hidden sm:block flex justify-center items-center min-w-[400px] max-w-[500px] home-img bg-white rounded-3xl"
+        class="hidden sm:block flex justify-center items-center min-w-[400px] max-w-[500px] bg-white rounded-3xl home-img"
       >
         <img src="/images/home.svg" alt="home picture" loading="lazy" class="w-full h-auto" />
       </div>

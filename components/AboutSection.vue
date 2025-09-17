@@ -47,19 +47,19 @@ onMounted(() => {
     aria-labelledby="about-title"
   >
     <h2 id="about-title" class="text-4xl font-bold mb-16 about-title">About Me</h2>
-    <div class="sm:flex">
+    <div class="lg:flex">
       <!-- About Image -->
-      <div class="sm:w-2/5 h-full flex justify-center items-center">
+      <div class="lg:w-2/5 h-full flex justify-center items-center">
         <img
           src="/images/123.jpg"
           alt="Brian Hsu picture"
           loading="lazy"
-          class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img mb-8 sm:mb-0"
+          class="w-3/4 rounded-3xl border border-gray-200 shadow-xl about-img mb-8 lg:mb-0"
         />
       </div>
 
       <!-- Description  -->
-      <div class="sm:w-3/5 space-y-4 2xl:space-y-8">
+      <div class="lg:w-3/5 space-y-4 2xl:space-y-8">
         <p v-for="content in aboutList" :key="content" class="flex gap-2 items-start text-xl about-text">
           <FontAwesomeIcon :icon="faBook" class="text-gray-600 mt-1" />
           <span class="text-gray-700 text-lg 2xl:text-2xl">{{ content }} </span>

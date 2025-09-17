@@ -28,7 +28,7 @@ onMounted(() => {
   >
     <h2 id="contact-title" class="text-4xl font-bold mb-12 contact-item">Contact</h2>
 
-    <div class="max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-0 contact-item">
+    <div class="max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-0 contact-item">
       <!-- Info -->
       <div class="space-y-2 text-lg text-gray-700 font-medium max-w-md m-auto sm:ml-auto">
         <p>
