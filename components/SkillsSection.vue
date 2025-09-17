@@ -70,4 +70,22 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#skills-title {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 10px;
+    background-color: #6adbb6;
+    border-radius: 2px;
+    z-index: -1;
+  }
+}
+</style>

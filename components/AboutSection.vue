@@ -41,8 +41,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about" class="p-12 bg-emerald-50 border-b overflow-y-hidden" aria-labelledby="about-title">
-    <h2 id="about-title" class="text-4xl font-bold text-center mb-16 about-title">About Me</h2>
+  <section
+    id="about"
+    class="p-12 bg-emerald-50 flex flex-col items-center border-b overflow-y-hidden"
+    aria-labelledby="about-title"
+  >
+    <h2 id="about-title" class="text-4xl font-bold mb-16 about-title">About Me</h2>
     <div class="flex">
       <!-- About Image -->
       <div class="w-2/5 h-full flex justify-center items-center">
@@ -65,4 +69,22 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#about-title {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 10px;
+    background-color: #6adbb6;
+    border-radius: 2px;
+    z-index: -1;
+  }
+}
+</style>

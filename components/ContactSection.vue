@@ -1,15 +1,30 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCircleDown, faEnvelope, faLocationDot, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import gsap from "gsap";
+
+onMounted(() => {
+  gsap.from(".contact-item", {
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 80%",
+      toggleActions: "play reverse play reverse",
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power3.out",
+  });
+});
 </script>
 
 <template>
   <section id="contact" class="py-10 bg-blue-50 flex flex-col items-center" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="text-4xl font-bold mb-16">Contact</h2>
+    <h2 id="contact-title" class="text-4xl font-bold mb-16 contact-item">Contact</h2>
 
-    <!-- Grid: 手機一欄，桌機兩欄 -->
-    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 contact-item">
       <!-- Info -->
       <address class="not-italic text-lg flex flex-col items-start gap-2 text-left ml-auto max-w-md">
         <p>
@@ -28,7 +43,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
       </address>
 
       <!-- Social -->
-      <div class="flex flex-col items-start gap-6">
+      <div class="flex flex-col items-start gap-6 contact-item">
         <!-- Links -->
         <ul class="flex flex-wrap gap-4">
           <li>
@@ -79,4 +94,22 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
   </section>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#contact-title {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    transform: translateX(-50%);
+    width: 110%;
+    height: 10px;
+    background-color: #81c0ea;
+    border-radius: 2px;
+    z-index: -1;
+  }
+}
+</style>

@@ -51,10 +51,10 @@ onMounted(() => {
 <template>
   <!-- Header -->
   <header
-    class="sticky top-0 z-50 backdrop-blur text-2xl font-bold text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[8vh] sm:h-[10vh] 2xl:h-[6vh]"
+    class="sticky top-0 z-50 backdrop-blur text-white bg-gray-900/80 shadow-md flex justify-between items-center px-8 h-[8vh] sm:h-[10vh] 2xl:h-[6vh]"
   >
-    <h3>Brian Hsu</h3>
-    <nav>
+    <h3 class="text-2xl font-bold">Brian Hsu</h3>
+    <nav class="text-xl font-bold">
       <ul class="flex flex-col sm:flex-row sm:gap-8">
         <li v-for="section in sections" :key="section" :class="{ 'text-orange-400': currentSection === section }">
           <NuxtLink :to="'#' + section">{{ section.toUpperCase() }}</NuxtLink>
