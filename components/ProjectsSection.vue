@@ -11,7 +11,7 @@ const projects: Project[] = [
     description: "個人作品集網頁，練習 GSAP 動畫及埋 GA。",
     techStack: ["Nuxt 3", "TypeScript", "GSAP", "GA", "a11y"],
     github: "https://github.com/brianhsu0606/brianhsu-portfolio",
-    link: "https://budget-tracker-sigma-liart.vercel.app",
+    link: "https://brianhsu-portfolio.vercel.app/",
     img: "/images/projects/portfolio.png",
   },
   {

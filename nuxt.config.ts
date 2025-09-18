@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     head: {
       title: "徐碩嶽 | Brian Hsu",
       meta: [{ name: "description", content: "個人作品集網站" }],
+      link: [{ rel: "icon", href: "/logo.svg" }],
       htmlAttrs: { lang: "zh-TW" },
     },
   },
