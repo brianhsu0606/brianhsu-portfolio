@@ -10,7 +10,7 @@ useSeoMeta({
   description: "個人作品集，包含 Vue 3、Nuxt 3、Node.js 等專案。",
   ogTitle: "徐碩嶽 | Brian Hsu",
   ogDescription: "展示 Vue、Nuxt、Node.js 專案與技能的個人作品集",
-  ogImage: "/images/home.jpg",
+  ogImage: "/images/projects/portfolio.png",
   twitterCard: "summary_large_image",
 });
 
