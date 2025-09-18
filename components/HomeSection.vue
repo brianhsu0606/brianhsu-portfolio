@@ -6,8 +6,6 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
-const { $gtag } = useNuxtApp();
-
 const icons: Icon[] = [
   {
     name: faGithub,
@@ -23,10 +21,10 @@ const icons: Icon[] = [
   },
 ];
 
+const { $gtag } = useNuxtApp();
+
 const trackClick = (eventName: string) => {
-  $gtag("event", eventName, {
-    page: "home",
-  });
+  $gtag("event", eventName, { page: "/" });
 };
 
 onMounted(() => {
