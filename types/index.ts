@@ -4,6 +4,7 @@ export interface Icon {
   name: IconDefinition;
   url: string;
   label: string;
+  eventName: string;
 }
 
 export interface Skill {

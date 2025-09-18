@@ -6,14 +6,28 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 
+const { $gtag } = useNuxtApp();
+
 const icons: Icon[] = [
-  { name: faGithub, url: "https://github.com/brianhsu0606", label: "Visit my GitHub profile" },
+  {
+    name: faGithub,
+    url: "https://github.com/brianhsu0606",
+    label: "Visit my GitHub profile",
+    eventName: "click_github",
+  },
   {
     name: faLinkedin,
     url: "https://www.linkedin.com/in/%E7%A2%A9%E5%B6%BD-%E5%BE%90-2ba388370/",
     label: "Visit my LinkedIn profile",
+    eventName: "click_linkedin",
   },
 ];
+
+const trackClick = (eventName: string) => {
+  $gtag("event", eventName, {
+    page: "home",
+  });
+};
 
 onMounted(() => {
   const isMobile = window.innerWidth < 768;
@@ -72,10 +86,11 @@ onMounted(() => {
             :aria-label="item.label"
             target="_blank"
             rel="noopener noreferrer"
+            @click="trackClick(item.eventName)"
           >
             <FontAwesomeIcon :icon="item.name" class="w-12 h-12 text-gray-700 hover:text-gray-500 transition" />
           </a>
-          <a href="mailto:a0938406813@gmail.com">
+          <a href="mailto:a0938406813@gmail.com" @click="trackClick('click_email')">
             <FontAwesomeIcon :icon="faEnvelope" class="w-12 h-12 text-gray-700 hover:text-gray-500 transition" />
           </a>
         </div>
