@@ -30,31 +30,17 @@ onMounted(() => {
     ease: "power3.out",
   });
 
-  gsap.from(".skills-item:nth-child(-n+4)", {
+  gsap.from(".skills-item", {
     scrollTrigger: {
       trigger: "#skills",
       start: "top 90%",
       end: "bottom 10%",
       toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
     },
-    x: -100,
+    y: 100,
     opacity: 0,
     duration: 1,
-    stagger: 0.2,
-    ease: "power3.out",
-  });
-
-  gsap.from(".skills-item:nth-child(n+5)", {
-    scrollTrigger: {
-      trigger: "#skills",
-      start: "top 90%",
-      end: "bottom 10%",
-      toggleActions: isMobile ? "play none none none" : "play reverse play reverse",
-    },
-    x: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
+    stagger: 0.07,
     ease: "power3.out",
   });
 });
